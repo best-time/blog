@@ -1,6 +1,6 @@
-# set  map
+## Set
 
-```
+```js
 Set 结构的键名就是键值
 
 
@@ -34,7 +34,7 @@ WeakSet.prototype.has(value)：返回一个布尔值，表示某个值是否在 
 ```
 
 
-```
+```js
 
 new Set([1, 2, 3, 4, 4])
 new Set('aabbcc')
@@ -74,10 +74,9 @@ set.forEach((value, key) => console.log(key + ' : ' + value))
 ```
 
 
+## Map
 
-
-```
-map
+```js
 
 任何具有 Iterator 接口、且每个成员都是一个双元素的数组的数据结构都可以当作Map构造函数的参数.
 
@@ -105,7 +104,7 @@ WeakMap 与 Map 在 API 上的区别主要是两个，
 ```
 
 
-```
+```js
 const map = new Map([
   ['name', '张三'],
   ['title', 'Author']

@@ -10,14 +10,59 @@ const javascript = [
   { title: "设计模式", path: "designPatterns" },
 ];
 
-const generateSidebar = (titleList = [], directory) => {
-  return titleList.map(({ title, path }) => {
-    return {
-      title,
-      path: `/${directory}/${path}`,
-    };
-  });
-};
+const es6List = [
+  {title: 'extend', path: 'extend'},
+  {title: 'promise', path: 'promise'},
+  {title: 'promise-demo', path: 'Promise2'},
+  {title: 'reflect', path: 'Reflect'},
+  {title: 'Set-Map', path: 'SetMap'},
+  {title: 'decorate', path: 'decorate'},
+  {title: 'proxy', path: 'Proxy'},
+  {title: 'module', path: 'module'},
+  {title: 'generator', path: 'Generator'},
+]
+const handbookList = [
+  {title: '循环', path: 'cycle'},
+
+]
+
+const tsList = [
+  {title: 'typescript', path: 'typescript'},
+  {title: 'typescript', path: 'typescript1'},
+
+]
+
+
+const vueList = [
+  {title: 'vue', path: 'vue'},
+  {title: 'vue', path: 'vue1'},
+  {title: 'vuex', path: 'vuex'},
+  {title: 'pinia', path: 'pinia'},
+
+]
+const cssList = [
+  {title: 'css', path: 'css'},
+  {title: 'sass', path: 'sass'},
+
+]
+
+const webpackList = [
+  {title: '配置', path: 'set'},
+
+]
+
+const gitList = [
+  {title: 'git', path: 'api'},
+
+]
+const otherList = [
+  {title: 'codeReview', path: 'codeReview'},
+  {title: 'collect', path: 'collect'},
+  {title: '常见问题', path: 'problem'},
+  {title: '换肤', path: 'switchSkin'},
+  {title: '电子书', path: 'ebook'},
+  {title: '健康', path: 'health'},
+]
 
 module.exports = {
   base: "/blog/",
@@ -36,45 +81,72 @@ module.exports = {
       // {text: "js", link: '/js/'},
 
       { text: "javascript", items: [{ text: "js", link: "/js/classList" }] },
-      // {
-      //           text: '冴羽的 JavaScript 博客',
+      { text: "frame", link: "/frame/vue" },
       //           items: [
       //               { text: 'Github', link: 'https://github.com/mqyqingfeng' },
       //               { text: '掘金', link: 'https://juejin.cn/user/712139234359182/posts' }
       //           ]
-      //       }
     ],
     sidebar: [
       {
         title: "javascript",
         path: "/js/js1",
         // collapsable: false,
-        children: generateSidebar(javascript, "js"),
+        children: generateSidebar(javascript, "js")
       },
       {
         title: "es6",
         path: "/es6/promise",
         // collapsable: false,
-        children: [
-          { title: "promise", path: "/es6/promise" },
-          { title: "reflect", path: "/es6/Reflect" },
-          // { title: "dom", path: "/es6/dom" },
-          // { title: "元素位置", path: "/js/domPostion" },
-          // { title: "正则", path: "/js/reg" },
-          // { title: "函数式", path: "/js/function" },
-          // { title: "操作符", path: "/js/operation" },
-          // { title: "设计模式", path: "/js/designPatterns" }
-        ],
+        children: generateSidebar(es6List, "es6")
       },
       {
-        title: "frame",
-        path: "/frame/vue",
-        children: [{ title: "vue", path: "/frame/vue" }],
+        title: "vue",
+        path: "/vue/vue",
+        children: generateSidebar(vueList, "vue")
+      },
+      {
+        title: "css",
+        path: "/css/css",
+        children: generateSidebar(cssList, "css")
+      },
+      {
+        title: "git",
+        path: "/git/api",
+        children: generateSidebar(gitList, "git")
+      },
+      {
+        title: "webpack",
+        path: "/webpack/set",
+        children: generateSidebar(webpackList, "webpack"),
+      },
+      {
+        title: "typescript",
+        path: "/typescript/",
+        children: generateSidebar(tsList, "typescript"),
+      },
+      {
+        title: "手册",
+        path: "/handbook/cycle",
+        children: generateSidebar(handbookList, "handbook"),
+      },
+      {
+        title: "包罗万象",
+        path: "/other/",
+        children: generateSidebar(otherList, "other"),
       },
     ],
   },
 };
 
+function generateSidebar (titleList = [], directory) {
+  return titleList.map(({ title, path }) => {
+    return {
+      title,
+      path: `/${directory}/${path}`,
+    };
+  });
+}
 /*
 
 '/js/': [
