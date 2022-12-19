@@ -23,12 +23,15 @@ const es6List = [
 ]
 const handbookList = [
   {title: '循环', path: 'cycle'},
+  {title: '事件', path: 'event'},
+  {title: 'dom', path: 'dom'},
+  {title: 'selection', path: 'selection'},
 
 ]
 
 const tsList = [
   {title: 'typescript', path: 'typescript'},
-  {title: 'typescript', path: 'typescript1'},
+  {title: 'typescript基础', path: 'typescript1'},
 
 ]
 
@@ -56,10 +59,13 @@ const gitList = [
 
 ]
 const otherList = [
+  {title: '文章', path: 'article'},
+  {title: 'element-ui', path: 'element'},
   {title: 'codeReview', path: 'codeReview'},
   {title: 'collect', path: 'collect'},
   {title: '常见问题', path: 'problem'},
   {title: '换肤', path: 'switchSkin'},
+  {title: '技能', path: 'skill'},
   {title: '电子书', path: 'ebook'},
   {title: '健康', path: 'health'},
 ]
@@ -78,8 +84,7 @@ module.exports = {
     subSidebar: "auto",
     nav: [
       { text: "首页", link: "/" },
-      // {text: "js", link: '/js/'},
-
+      {text: "资源", link: '/handbook/'},
       { text: "javascript", items: [{ text: "js", link: "/js/classList" }] },
       { text: "frame", link: "/frame/vue" },
       //           items: [
@@ -96,7 +101,7 @@ module.exports = {
       },
       {
         title: "es6",
-        path: "/es6/promise",
+        path: "/es6/",
         // collapsable: false,
         children: generateSidebar(es6List, "es6")
       },
@@ -127,7 +132,7 @@ module.exports = {
       },
       {
         title: "手册",
-        path: "/handbook/cycle",
+        path: "/handbook/",
         children: generateSidebar(handbookList, "handbook"),
       },
       {

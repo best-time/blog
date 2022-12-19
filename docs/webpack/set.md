@@ -1,10 +1,15 @@
 ## webpack 性能优化
 
-[webpack详解](https://zhuanlan.zhihu.com/p/363928061)
+[webpack原理](https://zhuanlan.zhihu.com/p/363928061)
+[优化详解](https://juejin.cn/post/6844904093463347208)
+[优化](https://segmentfault.com/a/1190000042256837)
+[解析](https://segmentfault.com/a/1190000042104271)
+[splitchunk](https://segmentfault.com/a/1190000042093955)
+[webpack5 搭建](https://mp.weixin.qq.com/s/r-h-Uo-2SftKaUcpOlrYdQ)
 
 ```
 ParallelUglifyPlugin
-使用HappyPack开启多进程Loader转换 
+使用HappyPack开启多进程Loader转换
 	 use:['happypack/loader?id=css']
  ParallelUglifyPlugin开启多进程压缩JS文件
  	new ParallelUglifyPlugin({
@@ -13,14 +18,14 @@ ParallelUglifyPlugin
         //...其他ParallelUglifyPlugin的参数，设置cacheDir可以开启缓存，加快构建速度
     })
 
-自动刷新 
+自动刷新
 	--watch
 	devserver
 		向网页中注入代理客户端代码，通过客户端发起刷新
 		向网页装入一个iframe，通过刷新iframe实现刷新效果
 
 
-压缩代码体积 
+压缩代码体积
 	const DefinePlugin = require('webpack/lib/DefinePlugin');
 	plugins:[
 	    new DefinePlugin({
@@ -28,7 +33,7 @@ ParallelUglifyPlugin
 	            NODE_ENV: JSON.stringify('production')
 	        }
 	    })
-	] 
+	]
 
 const UglifyJSPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
  	new UglifyJSPlugin({
@@ -44,7 +49,7 @@ const UglifyJSPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
         }
     })
 
- 
+
  压缩CSS：css-loader?minimize、PurifyCSSPlugin
 	cssnano基于PostCSS，不仅是删掉空格，还能理解代码含义，例如把color:#ff0000 转换成 color:red，css-loader内置了cssnano，只需要使用 css-loader?minimize 就可以开启cssnano压缩。
 	另外一种压缩CSS的方式是使用PurifyCSSPlugin，需要配合 extract-text-webpack-plugin 使用，它主要的作用是可以去除没有用到的CSS代码，类似JS的Tree Shaking。
@@ -54,7 +59,7 @@ const UglifyJSPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 	前提是代码必须采用ES6的模块化语法
 	.babelrc
     "presets": [[
-        "env", 
+        "env",
         { "module": false },   //关闭Babel的模块转换功能，保留ES6模块化语法
     ]]
 
@@ -64,7 +69,7 @@ module.noParse
     module: {
         noParse: [/jquery|lodash, /react\.min\.js$/]
     }
-    
+
 预渲染
   prerender-spa-plugin插件，预渲染极大地提高了首屏加载速度。其原理是此插件在本地模拟浏览器环境，
 预先执行我们打包的文件，返回预先解析的首屏html。使用方法入如下：
@@ -92,7 +97,7 @@ splitChunks  合成文件
 
 cdn 加速
 	用户可以就近访问资源，加快访问速度
-	
+
 	HTTP1.x版本的协议下，浏览器会对于向同一域名并行发起的请求数限制在4~8个。
 	那么把所有静态资源放在同一域名下的CDN服务上就会遇到这种限制，所以可以把他们分散放在不同的CDN服务上，
 
@@ -122,7 +127,7 @@ cdn 加速
 	     }),
 	 },{
 	    test: /\.png/,
-	    use: ['file-loader?name=[name]_[hash:8].[ext]'], //为输出的PNG文件名加上Hash值 
+	    use: ['file-loader?name=[name]_[hash:8].[ext]'], //为输出的PNG文件名加上Hash值
 	 }]
 	},
 	plugins:[
@@ -155,7 +160,7 @@ CommonsChunkPlugin   把多个页面依赖的公共代码提取到common.js
 	        chunks:['base','common'],
 	        name:'base',
 	        //minChunks:2,表示文件要被提取出来需要在指定的chunks中出现的最小次数，防止common.js中没有代码的情况
-	    })        
+	    })
 	]
 
 
@@ -246,7 +251,7 @@ loader 的执行顺序
         compiler 对象代表了完整的 webpack 环境配置。这个对象在启动 webpack 时被一次性建立，并配置好所有可操作的设置，
         包括 options，loader 和 plugin。当在 webpack 环境中应用一个插件时，插件将收到此 compiler 对象的引用。
         可以使用它来访问 webpack 的主环境。
-        
+
         compilation 对象代表了一次资源版本构建。
         当运行 webpack 开发环境中间件时，每当检测到一个文件变化，就会创建一个新的 compilation，从而生成一组新的编译资源。
         一个 compilation 对象表现了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状态信息。
@@ -298,7 +303,7 @@ Plugin.prototype.apply = function (compiler) {
                     <script src="${filename}"></script>
                 </head>
                 <body>
-                    
+
                 </body>
                 </html>`
         // 所有处理后的资源都放在 compilation.assets 中
@@ -334,7 +339,7 @@ class CopyrightWebpackPlugin {
         compiler.hooks.compile.tap('CopyrightWebpackPlugin',() => {
             console.log('compiler');
         });
-		
+
         //遇到异步时刻
         //当要把代码放到dist目录之前，要走下面这个函数
         //Compilation存放打包的所有内容，Compilation.assets放置生成的内容
@@ -370,7 +375,7 @@ module.exports = CopyrightWebpackPlugin;
 ```
 1. webpack-dev-server启动本地服务
     我们根据webpack-dev-server的package.json中的bin命令，可以找到命令的入口文件bin/webpack-dev-server.js
-    
+
     启动webpack，生成compiler实例。compiler上有很多方法，比如可以启动 webpack 所有编译工作，以及监听本地文件的变化。
     使用express框架启动本地server，让浏览器可以请求本地的静态资源。
     本地server启动之后，再去启动websocket服务，如果不了解websocket，建议简单了解一下websocket速成。通过websocket，
@@ -382,28 +387,28 @@ module.exports = CopyrightWebpackPlugin;
     添加 clientEntry  hotEntry 一起打包打开bundle.js中
     webpack-dev-server/client/index.js    启动websocket
     webpack/hot/dev-server.js   检查更新逻辑的
-    
-    
+
+
 3. 监听webpack编译结束
     修改好入口配置后，又调用了setupHooks方法。这个方法是用来注册监听事件的，监听每次webpack编译完成。
     当监听到一次webpack编译结束，就会调用_sendStats方法通过websocket给浏览器发送通知，
     ok和hash事件，这样浏览器就可以拿到最新的hash值了，做检查更新逻辑。
-    
+
 4. webpack监听文件变化
     主要是通过setupDevMiddleware方法实现的
     // node_modules/webpack-dev-middleware/index.js
     compiler.watch(options.watchOptions, (err) => {
         if (err) { /*错误处理*/ }
     });
-    
+
     // 通过“memory-fs”库将打包后的文件写入内存
-    setFs(context, compiler); 
-    
+    setFs(context, compiler);
+
     （1）调用了compiler.watch方法，在第 1 步中也提到过，compiler的强大。这个方法主要就做了 2 件事：
 
     首先对本地文件代码进行编译打包，也就是webpack的一系列编译流程。
     其次编译结束后，开启对本地文件的监听，当文件发生变化，重新编译，编译完成之后继续监听。
-    
+
     为什么代码的改动保存会自动编译，重新打包？这一系列的重新检测编译就归功于compiler.watch这个方法了。监听本地文件的变化主要是通过文件的生成时间是否有变化，这里就不细讲了。
     （2）执行setFs方法，这个方法主要目的就是将编译后的文件打包到内存。这就是为什么在开发的过程中，你会发现dist目录没有打包后的代码，因为都在内存中。原因就在于访问内存中的代码比访问文件系统中的文件更快，而且也减少了代码写入文件的开销，这一切都归功于memory-fs。
 

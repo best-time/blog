@@ -1,8 +1,3 @@
-[typescript](https://juejin.im/post/5d53a8895188257fad671cbc)
-
-[ts实战](https://juejin.im/post/5d767bc5f265da03b76b48a6)
-
-[ts类型](https://juejin.im/post/5d461f3bf265da03e05af694)
 
 ## 基础语法
 
@@ -34,7 +29,7 @@ let notSure: any = 4;
 
 
 Void
-某种程度上来说，void类型像是与any类型相反，它表示没有任何类型。 
+某种程度上来说，void类型像是与any类型相反，它表示没有任何类型。
 当一个函数没有返回值时，你通常会见到其返回值类型是 void：
 
 function warnUser(): void {
@@ -44,7 +39,7 @@ function warnUser(): void {
 
 let u: undefined = undefined;
 let n: null = null;
-默认情况下null和undefined是所有类型的子类型。 
+默认情况下null和undefined是所有类型的子类型。
 就是说你可以把 null和undefined赋值给number类型的变量。⭐️
 
 Object
@@ -78,8 +73,8 @@ function f({ a, b }: C): void {
 }
 
 
-对象展开还有其它一些意想不到的限制。 首先，它仅包含对象 自身的可枚举属性。 
-大体上是说当你展开一个对象实例时，你会丢失其方法： 
+对象展开还有其它一些意想不到的限制。 首先，它仅包含对象 自身的可枚举属性。
+大体上是说当你展开一个对象实例时，你会丢失其方法：
 
 class C {
   p = 12;
@@ -123,7 +118,7 @@ ro.push(5); // error!
 ro.length = 100; // error!
 a = ro; // error!
 
-上面代码的最后一行，可以看到就算把整个ReadonlyArray赋值到一个普通数组也是不可以的。 
+上面代码的最后一行，可以看到就算把整个ReadonlyArray赋值到一个普通数组也是不可以的。
 但是你可以用类型断言重写：
 
 a = ro as number[]; // 绕开检查,可以通过类型断言  ⭐️⭐️⭐️⭐️⭐️
@@ -185,7 +180,7 @@ let square = <Square>{};
 ```
 
 
-构造函数也可以被标记成 protected。 
+构造函数也可以被标记成 protected。
 这意味着这个类不能在包含它的类外被实例化，但是能被继承。
 
 
@@ -195,7 +190,7 @@ protected修饰符与 private修饰符的行为很相似，
 
 
 readonly修饰符
-你可以使用 readonly关键字将属性设置为只读的。 
+你可以使用 readonly关键字将属性设置为只读的。
 只读属性必须在声明时或构造函数里被初始化。 ⭐️⭐️⭐️⭐️⭐️
 
 class Octopus {
@@ -217,7 +212,7 @@ class Octopus {
 
 ```
 
-我们需要一种方法使返回值的类型与传入参数的类型是相同的。 
+我们需要一种方法使返回值的类型与传入参数的类型是相同的。
 这里，我们使用了类型变量，它是一种特殊的变量，只用于表示类型而不是值。
 
 function identity<T>(arg: T): T {
@@ -227,10 +222,10 @@ function identity<T>(arg: T): T {
 之后我们就可以使用这个类型。 之后我们再次使用了T当做返回值类型。
 现在我们可以知道参数类型与返回值类型是相同的了。
  这允许我们跟踪函数里使用的类型的信息。
- 
- 
+
+
 我们定义了泛型函数后，可以用两种方法使用。 第一种是，传入所有的参数，包含类型参数：
-let output = identity<string>("myString"); 
+let output = identity<string>("myString");
  // type of output will be 'string'
 这里我们明确的指定了T是string类型，并做为一个参数传给函数，使用了<>括起来而不是()。
 第二种方法更普遍。利用了类型推论 -- 即编译器会根据传入的参数自动地帮助我们确定T的类型：
@@ -294,8 +289,8 @@ function loggingIdentity<T extends Lengthwise>(arg: T): T {
 
 
 在泛型约束中使用类型参数
-你可以声明一个类型参数，且它被另一个类型参数所约束。 
-比如，现在我们想要用属性名从对象里获取这个属性。 
+你可以声明一个类型参数，且它被另一个类型参数所约束。
+比如，现在我们想要用属性名从对象里获取这个属性。
 并且我们想要确保这个属性存在于对象obj上，因此我们需要在这两个类型之间使用约束。
 
 function getProperty<T, K extends keyof T>(obj: T, key: K) {

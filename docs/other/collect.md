@@ -147,7 +147,7 @@ JSONP只支持GET请求，JSONP的优势在于支持老式浏览器，以及可�
 不管是Node中间件代理还是nginx反向代理，主要是通过同源策略对服务器不加限制。
 日常工作中，用得比较多的跨域方案是cors和nginx反向代理
 
- 
+
 ```
 
 #### jsonp
@@ -204,7 +204,7 @@ app.listen(3000)
 ```
 
 CORS 需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。
-服务端设置 Access-Control-Allow-Origin 就可以开启 CORS。 
+服务端设置 Access-Control-Allow-Origin 就可以开启 CORS。
 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。
 
 分别为简单请求和复杂请求
@@ -234,7 +234,7 @@ res.setHeader('Access-Control-Allow-Methods', 'PUT')
 res.setHeader('Access-Control-Max-Age', 6)
 // OPTIONS请求不做任何处理
 if (req.method === 'OPTIONS') {
-  res.end() 
+  res.end()
 }
 // 定义后台返回的内容
 app.put('/getData', function(req, res) {
@@ -252,7 +252,7 @@ targetOrigin:通过窗口的origin属性来指定哪些窗口能接收到消息�
 其值可以是字符串"*"（表示无限制）或者一个URI。在发送消息的时候，如果目标窗口的协议、
 主机地址或端口这三者的任意一项不匹配targetOrigin提供的值，那么消息就不会被发送；
 只有三者完全匹配，消息才会被发送。
-transfer(可选)：是一串和message 同时传递的 Transferable 对象. 
+transfer(可选)：是一串和message 同时传递的 Transferable 对象.
 这些对象的所有权将被转移给消息的接收方，而发送一方将不再保有所有权。
 
 
@@ -260,11 +260,11 @@ http://localhost:3000/a.html页面向http://localhost:4000/b.html传递“我爱
 
 
 // a.html
-  <iframe src="http://localhost:4000/b.html" frameborder="0" 
+  <iframe src="http://localhost:4000/b.html" frameborder="0"
   id="frame" onload="load()"></iframe> //等它加载完触发一个事件
-  
+
   //内嵌在http://localhost:3000/a.html
-  
+
     <script>
       function load() {
         let frame = document.getElementById('frame')
@@ -318,7 +318,7 @@ wss.on('connection',function(ws) {
 
 #### node中间件代理
 ```
-同源策略是浏览器需要遵循的标准，而如果是服务器向服务器请求就无需遵循同源策略。 
+同源策略是浏览器需要遵循的标准，而如果是服务器向服务器请求就无需遵循同源策略。
 代理服务器，需要做以下几个步骤：
 
 接受客户端请求 。
@@ -400,14 +400,14 @@ window.name属性的独特之处：name值在不同的页面（甚至不同域�
 
  // c.html(http://localhost:4000/c.html)
   <script>
-    window.name = '我不爱你'  
+    window.name = '我不爱你'
   </script>
 
 
 ```
 #### location.hash + iframe
 ```
-实现原理： a.html欲与c.html跨域相互通信，通过中间页b.html来实现。 
+实现原理： a.html欲与c.html跨域相互通信，通过中间页b.html来实现。
 三个页面，不同域之间利用iframe的location.hash传值，相同域之间直接js访问来通信。
 
 
@@ -424,7 +424,7 @@ window.name属性的独特之处：name值在不同的页面（甚至不同域�
 
  // b.html
   <script>
-    window.parent.parent.location.hash = location.hash 
+    window.parent.parent.location.hash = location.hash
     //b.html将结果放到a.html的hash值中，b.html可通过parent.parent访问a.html页面
   </script>
 
@@ -568,12 +568,12 @@ CSS 动画（Web 动画同理）优化的第一条准则就是让需要动画的
 	拥有加速 CSS 过滤器的元素
 	元素有一个包含复合层的后代节点(换句话说，就是一个元素拥有一个子元素，该子元素在自己的层里)
 	元素有一个 z-index 较低且包含一个复合层的兄弟元素(换句话说就是该元素在复合层上面渲染)
-	
-	
+
+
 减少使用耗性能样式
 	box-shadow
 	CSS 3D 变换、mix-blend-mode、filter
-	
+
 使用 will-change 提高页面滚动、动画等渲染性能
 
 
@@ -792,79 +792,79 @@ html[data-theme='dark']:root {
 
    ```
    <html data-theme="light"></html>
-   
+
    html[data-theme='light'] .ant-button {color: #fff}
    html[data-theme='dark'] .ant-button {color: #000}
-   
-   
+
+
    ```
 
 3. 动态切换
 
    ```
    页面切换主题具体需要从下面三个维度来考虑：
-   
+
    系统主题更换
    页面提供主题切换按钮，用户主动切换
    通过URL控制当前主题
-   
+
    body {
      background: var(--body-background);
      transition: background 0.3s;
    }
-   
+
    @media (prefers-color-scheme: light) {
      :root {
        --body-background: #efefef;
        --text-color: #333;
      }
    }
-   
+
    @media (prefers-color-scheme: dark) {
      :root {
        --body-background: #000;
        --text-color: #ededed;
      }
    }
-   
-   
+
+
    # 跟随主题
    // 给HTML DOM节点添加自定义主题，标识当前主题
    const toggleTheme = (isDarkMode) => {
    	const htmlEl = document.documentElement;
      htmlEl.setAttribute("data-theme", isDarkMode ? "dark" : "light");
    };
-   
+
    const themeMedia = window.matchMedia("(prefers-color-scheme: dark)");
-   
+
    // 页面初始化切换
    toggleTheme(themeMedia.matches);
-   
+
    // 监听系统切换
    themeMedia.addListener((e) => {
      toggleTheme(e.matches);
    });
-   
-   
+
+
    # 按钮切换
    const buttonEl = document.getElementById("btn");
-   
+
    buttonEl.addEventListener("click", () => {
      const currentTheme = htmlEl.getAttribute("data-theme");
      const nextTheme = currentTheme === "dark" ? "light" : "dark";
-   
+
      htmlEl.setAttribute("data-theme", nextTheme);
    });
-   
+
    # url 切换
-   
+
    const search = new URLSearchParams(location.search);
    const theme = search.get("theme") || "light";
-   
+
    document.documentElement.setAttribute("data-theme", theme);
-   
-   
-   
+
+
+
    ```
 
 
@@ -1019,7 +1019,7 @@ app.listen(3000)
 2.cors
 
 CORS 需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。
-服务端设置 Access-Control-Allow-Origin 就可以开启 CORS。 
+服务端设置 Access-Control-Allow-Origin 就可以开启 CORS。
 该属性表示哪些域名可以访问资源，如果设置通配符则表示所有网站都可以访问资源。
 
 分别为简单请求和复杂请求
@@ -1049,7 +1049,7 @@ res.setHeader('Access-Control-Allow-Methods', 'PUT')
 res.setHeader('Access-Control-Max-Age', 6)
 // OPTIONS请求不做任何处理
 if (req.method === 'OPTIONS') {
-  res.end() 
+  res.end()
 }
 // 定义后台返回的内容
 app.put('/getData', function(req, res) {
@@ -1158,9 +1158,9 @@ master: 基分支 目标分支
 git rebase -i [startPonit] [endPoint]
               HEAD~N   N为我们需要合并的 commit 记录的数量
 
-  前开后闭 区间 这里的 [startPonit] 是指需要合并的commit的前一个commit (即当前示例中的 “4cb600e: feat: modify a”)。 
+  前开后闭 区间 这里的 [startPonit] 是指需要合并的commit的前一个commit (即当前示例中的 “4cb600e: feat: modify a”)。
   因为, 三个commit肯定要基于上一个commit合并成了新的commit。
-  谨慎使用[endPoint] 省略, 即默认表示从起始commit一直到最后一个，但是一旦你填写了, 
+  谨慎使用[endPoint] 省略, 即默认表示从起始commit一直到最后一个，但是一旦你填写了,
   则表示 [endPoint]后面的commit全部不要了!
 
   pick 改成 s
@@ -1175,7 +1175,7 @@ git rebase -i [startPonit] [endPoint]
   drop：我要丢弃该commit（缩写:d）
 
 
-分支合并 
+分支合并
 git rebase [分支名]
 
 
@@ -1184,7 +1184,7 @@ git rebase [分支名]
 
 (将一段commit粘贴到另一个分支上) (如果只是复制某一两个提交到其他分支，建议使用更简单的命令:git cherry-pick)
     git rebase   [startpoint]   [endpoint]  --onto  [branchName]
-ex: 
+ex:
     git  rebase   90bc0045b^   5de0da9f2   --onto master
     这时候 master 没有任何变化
     git checkout master
@@ -1210,7 +1210,7 @@ this.$el.getBoundingClientRect()
 屏幕可用工作区宽度 window.screen.availWidth
 网页滚动距离顶部距离 document.body.scrollTop
 网页滚动距离左边距离 document.body.scrollLeft
- 
+
 网页可见区域宽： document.body.clientWidth
 网页可见区域高： document.body.clientHeight
 网页可见区域宽： document.body.offsetWidth (包括边线的宽)
@@ -1248,11 +1248,11 @@ dom元素.style.height/width
  Node.CDATA_SECTION_NODE(4);
  Node.ENTITY_REFERENCE_NODE(5);
  Node.ENTITY_NODE(6);
- Node.PROCESSING_INSTRUCTION_NODE(7); 
+ Node.PROCESSING_INSTRUCTION_NODE(7);
  Node.COMMENT_NODE(8);
  Node.DOCUMENT_NODE(9);
  Node.DOCUMENT_TYPE_NODE(10);
- Node.DOCUMENT_FRAGMENT_NODE(11); 
+ Node.DOCUMENT_FRAGMENT_NODE(11);
  Node.NOTATION_NODE(12)。
 
 
@@ -1276,7 +1276,7 @@ firstChild lastChild
 
 下面四个方法操作的都是某个节点的子节点
 
-appendChild()  
+appendChild()
 返回新增的节点
 
 insertBefore()方法。接受两个参数:要插入的节点和作为参照的节点,
@@ -1310,14 +1310,14 @@ var referrer = document.referrer;
 当页面中包含来自其他子域的框架或内嵌框架时，能够设置document.domain就非常方便了。
 由于跨域安全限制，来自不同子域的页面无法通过 JavaScript 通信。
 而通过将每个页面的 document.domain 设置为相同的值，这些页面就可以互相访问对方包含的 JavaScript 对象了。
-例如，假设有一个页面加载自 www.wrox.com，其中包含一个内嵌框架，框架内的页面加载自 p2p.wrox.com。 
+例如，假设有一个页面加载自 www.wrox.com，其中包含一个内嵌框架，框架内的页面加载自 p2p.wrox.com。
 由于 document.domain 字符串不一样，内外两个页面之间无法相互访问对方的 JavaScript 对象。
 但如果将这两个页面的 document.domain 值都设置为"wrox.com"，它们之间就可以通信了
 浏览器对 domain 属性还有一个限制，即如果域名一开始是“松散的”(loose)，那么不能将它再设置为“紧绷的”(tight)。
 换句话说，在将 document.domain 设置为"wrox.com"之后，就不能再将其 设置回"p2p.wrox.com"，否则将会导致错误
 
 
-除了属性和方法，document 对象还有一些特殊的集合。这些集合都是 HTMLCollection 对象， 
+除了属性和方法，document 对象还有一些特殊的集合。这些集合都是 HTMLCollection 对象，
 为访问文档常用的部分提供了快捷方式，包括:
  document.anchors，包含文档中所有带 name 特性的<a>元素;
  document.applets，包含文档中所有的<applet>元素，因为不再推荐使用<applet>元素，
@@ -1368,7 +1368,7 @@ Text类型提供了一个作用与normalize()相反的方法:splitText(num)
 
 Comment 类型与 Text 类型继承自相同的基类，因此它拥有除 splitText()之外的所有字符串操
  作方法
- 
+
  document.createComment()并为其传递注释文本也可以创建注释节点
 
 CDATASection 类型继承自 Text 类型，因此拥有除 splitText()之外的所有字符串操作方法
@@ -1419,7 +1419,7 @@ alert(element.getAttribute("align"));        //"left"
  cells:保存着<tr>元素中单元格的 HTMLCollection。
  deleteCell(pos):删除指定位置的单元格。
  insertCell(pos):向 cells 集合中的指定位置插入一个单元格，返回对新插入单元格的引用。
- 
+
 ```
 
 
@@ -1433,7 +1433,7 @@ window.screenLeft window.screenTop
 innerWidth、innerHeight、outerWidth 和 outerHeight
 
 通过dom提供页面可见区域相关信息
-document.documentElement.clientWidth 和 
+document.documentElement.clientWidth 和
 document.documentElement.clientHeight 中保存了页面视口的信息
 
 document.body.clientWidth 和 document.body. clientHeight
@@ -1522,11 +1522,11 @@ textbox.setSelectionRange(0, textbox.value.length); //"Hello world!"
 });
 
 例如，下列代码只允许 用户输入数值。
-EventUtil.addHandler(textbox, "keypress", function(event){ 
+EventUtil.addHandler(textbox, "keypress", function(event){
 event = EventUtil.getEvent(event);
 var target = EventUtil.getTarget(event);
 var charCode = EventUtil.getCharCode(event);
-     
+
         if (!/\d/.test(String.fromCharCode(charCode)) && charCode > 9 &&
                  !event.ctrlKey){
   			EventUtil.preventDefault(event);
@@ -1534,12 +1534,12 @@ var charCode = EventUtil.getCharCode(event);
 });
 
 
-下列就是 6 个剪贴板事件。 
+下列就是 6 个剪贴板事件。
  beforecopy:在发生复制操作前触发。
  copy:在发生复制操作时触发。
  beforecut:在发生剪切操作前触发。
  cut:在发生剪切操作时触发。
- beforepaste:在发生粘贴操作前触发。 
+ beforepaste:在发生粘贴操作前触发。
  paste:在发生粘贴操作时触发
 
 
@@ -1550,7 +1550,7 @@ var charCode = EventUtil.getCharCode(event);
 
 
 移除 option
-selectbox.removeChild(selectbox.options[0]); //移除第一个选项 
+selectbox.removeChild(selectbox.options[0]); //移除第一个选项
 其次，可以使用选择框的 remove()方法。
 这个方法接受一个参数，即要移除选项的索引，如下面的例子所示:
 selectbox.remove(0); //移除第一个选项
@@ -1604,48 +1604,6 @@ Mithril、Inferno、Angular、React、Aurelia、Vue 和 Polymer
 
 ```
 
-## 文章收集
-
-
-[前端开发规范](https://yq.aliyun.com/articles/51488)
-
-[推荐的vue ui库](https://segmentfault.com/a/1190000015423178?utm_source=tag-newest)
-
-[css总结](https://juejin.im/post/5d3eca78e51d4561cb5dde12)
-
-[Js总结](https://juejin.im/post/5d54e78be51d4561b072dce6)
-
-[Js原生api实现](https://juejin.im/post/5d635566e51d4561e224a360)
-
-[前端推荐文章](https://juejin.im/post/5d387f696fb9a07eeb13ea60)
-
-[一个框架](https://yoxjs.github.io/yox/#/)
-
-[前端100题](https://juejin.im/post/5d23e750f265da1b855c7bbe)
-
-[Vue 面试题](https://juejin.im/post/5d59f2a451882549be53b170)
-
-[HTML/CSS/JS编码规范](https://juejin.im/post/599ececb5188252423583c27#heading-55)
-
-[Less 常用语法](https://www.jianshu.com/p/d81496ed0e29)
-
-[简易mvvm](https://www.cnblogs.com/canfoo/p/6891868.html)
-
-[Js设计模式](https://juejin.im/post/5d58ca046fb9a06ad0056cc7)
-
-[vue目录解构](https://juejin.im/post/5d5a44f0e51d456201486e41)
-
-[腾讯code guider](http://alloyteam.github.io/CodeGuide/#js-miscellaneous)
-
-[虚拟dom](https://juejin.im/post/5d3f3bf36fb9a06af824b3e2)
-
-[前端协作规范](https://juejin.im/post/5d3a7134f265da1b5d57f1ed#heading-27)
-
-[干货](https://juejin.im/post/5d3edad9f265da03a652f133)
-
-
-
-
 
 ## document.execCommand
 
@@ -1696,4 +1654,3 @@ Mithril、Inferno、Angular、React、Aurelia、Vue 和 Polymer
 | enableInlineTableEditing  | 启用或禁用表格行和列插入和删除控件。                         | null                                                         |
 | enableObjectResizing      | 启用或禁用图像和其他对象的大小可调整                         | null                                                         |
 | increaseFontSize          | 在选择或插入点周围添加一个BIG标签。                          | null                                                         |
-

@@ -1,5 +1,7 @@
 # dom 操作
 
+[文本节点](https://www.zhangxinxu.com/wordpress/2022/11/js-text-node-master/)
+
 ## dom创建
 
 ```javascript

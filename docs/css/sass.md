@@ -17,8 +17,8 @@
   font-family: fantasy;
   font-size: 30em;
   font-weight: bold; }
-  
-  
+
+
   命名空间也可以包含自己的属性值，例如：
 
 .funky {
@@ -33,8 +33,8 @@
   font: 20px/24px;
     font-family: fantasy;
     font-weight: bold; }
-  
-  
+
+
   @mixin icon {
   transition: background-color ease .2s;
   margin: 0 .5em;
@@ -67,9 +67,9 @@
 
 
   使用@extend调用定义好的选择器占位符%placeholder有所限制，他不能在不同的@media中运行。
-  
-  
-  
+
+
+
   6.7. 插值语句 #{} (Interpolation: #{})
 通过 #{} 插值语句可以在选择器或属性名中使用变量：
 
@@ -82,8 +82,8 @@ p.#{$name} {
 
 p.foo {
   border-color: blue; }
-  
-  
+
+
   7.2. @media
 Sass 中 @media 指令与 CSS 中用法一样，只是增加了一点额外的功能：允许其在 CSS 规则中嵌套。如果 @media 嵌套在 CSS 规则内，编译时，@media 将被编译到文件的最外层，包含嵌套的父选择器。这个功能让 @media 用起来更方便，不需要重复使用选择器，也不会打乱 CSS 的书写流程。
 
@@ -100,7 +100,7 @@ Sass 中 @media 指令与 CSS 中用法一样，只是增加了一点额外的�
   @media screen and (orientation: landscape) {
     .sidebar {
       width: 500px; } }
-      
+
       @media 的 queries 允许互相嵌套使用，编译时，Sass 自动添加 and
 
 @media screen {
@@ -131,8 +131,8 @@ $value: 1.5;
 @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
   .sidebar {
     width: 500px; } }
-    
-    
+
+
     7.4. @at-root
     .parent {
   ...
@@ -158,11 +158,11 @@ Which would output the following:
 .child1 { ... }
 .child2 { ... }
 .parent .step-child { ... }
-      
-      
-      
-      
-      
+
+
+
+
+
 9.3. 参数 (Arguments)
 参数用于给混合指令中的样式设定变量，并且赋值使用。在定义混合指令的时候，按照变量的格式，通过逗号分隔，将参数写进圆括号里。引用指令时，按照参数的顺序，再将所赋的值对应写进括号：
 
@@ -180,8 +180,8 @@ p {
   border-color: blue;
   border-width: 1in;
   border-style: dashed; }
-      
-  
+
+
 
 10. 函数指令 (Function Directives)
 Sass 支持自定义函数，并能在任何属性值或 Sass script 中使用：
@@ -198,8 +198,51 @@ $gutter-width: 10px;
 
 #sidebar {
   width: 240px; }
-  
-  
-  
 
+
+
+
+```
+
+
+## scss 和 less 区别
+
+- 声明变量 LESS用@符号，SCSS用$符号表示
+
+```css
+ @main-top : search;
+ .@{ main-top } {
+     font-size ： 24px；
+     color : #fff;
+ }
+ // 是用LESS，定义类，类选择器选中search标签，给其设置css样式
+
+
+$main-top : search;
+.@{ main-top } {
+ font-size ： 24px；
+ color : #fff;
+}
+// 是用SCSS，定义类，类选择器选中search标签，给其设置css样式
+```
+
+- scss 支持条件语句,less不支持
+
+```css
+ ​
+ /* Sample Sass “if” statement */
+ 
+ @if lightness($color) > 30% {
+ 
+ } @else {
+ 
+ }
+ 
+ /* Sample Sass “for” loop */
+ 
+ @for $i from 1 to 10 {
+   .border-#{$i} {
+     border: #{$i}px solid blue;
+   }
+ ​
 ```
