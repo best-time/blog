@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>webpack打包性能瓶颈 | 记录</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="笔记">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.792487fc.css" as="style"><link rel="preload" href="/blog/assets/js/app.35edf068.js" as="script"><link rel="preload" href="/blog/assets/js/3.8349ca37.js" as="script"><link rel="preload" href="/blog/assets/js/1.cf20fa99.js" as="script"><link rel="preload" href="/blog/assets/js/65.acfa5b7e.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.974889c9.js"><link rel="prefetch" href="/blog/assets/js/11.10f6fb6d.js"><link rel="prefetch" href="/blog/assets/js/12.03df589f.js"><link rel="prefetch" href="/blog/assets/js/13.1e7d7c07.js"><link rel="prefetch" href="/blog/assets/js/14.e3591339.js"><link rel="prefetch" href="/blog/assets/js/15.015ebc4a.js"><link rel="prefetch" href="/blog/assets/js/16.31112d9c.js"><link rel="prefetch" href="/blog/assets/js/17.d9f266cc.js"><link rel="prefetch" href="/blog/assets/js/18.04baafb2.js"><link rel="prefetch" href="/blog/assets/js/19.dedf9f19.js"><link rel="prefetch" href="/blog/assets/js/20.57f6a5e6.js"><link rel="prefetch" href="/blog/assets/js/21.aa29dbac.js"><link rel="prefetch" href="/blog/assets/js/22.59838915.js"><link rel="prefetch" href="/blog/assets/js/23.0dea3ea9.js"><link rel="prefetch" href="/blog/assets/js/24.5b56ecad.js"><link rel="prefetch" href="/blog/assets/js/25.c0244dfb.js"><link rel="prefetch" href="/blog/assets/js/26.86891ecc.js"><link rel="prefetch" href="/blog/assets/js/27.951d3f33.js"><link rel="prefetch" href="/blog/assets/js/28.d1cc87a3.js"><link rel="prefetch" href="/blog/assets/js/29.4d818a95.js"><link rel="prefetch" href="/blog/assets/js/30.bc7ecb10.js"><link rel="prefetch" href="/blog/assets/js/31.1c4b65a0.js"><link rel="prefetch" href="/blog/assets/js/32.47b1cff6.js"><link rel="prefetch" href="/blog/assets/js/33.e73c5fd6.js"><link rel="prefetch" href="/blog/assets/js/34.022c6643.js"><link rel="prefetch" href="/blog/assets/js/35.6603ed0d.js"><link rel="prefetch" href="/blog/assets/js/36.3a8f7758.js"><link rel="prefetch" href="/blog/assets/js/37.235de343.js"><link rel="prefetch" href="/blog/assets/js/38.2d7c6e2a.js"><link rel="prefetch" href="/blog/assets/js/39.30a7b6f2.js"><link rel="prefetch" href="/blog/assets/js/4.d39b663d.js"><link rel="prefetch" href="/blog/assets/js/40.4df1cc16.js"><link rel="prefetch" href="/blog/assets/js/41.d4fe5862.js"><link rel="prefetch" href="/blog/assets/js/42.c556f088.js"><link rel="prefetch" href="/blog/assets/js/43.6527c54d.js"><link rel="prefetch" href="/blog/assets/js/44.d5937ea0.js"><link rel="prefetch" href="/blog/assets/js/45.aa3107b1.js"><link rel="prefetch" href="/blog/assets/js/46.a24f60e3.js"><link rel="prefetch" href="/blog/assets/js/47.76d870f1.js"><link rel="prefetch" href="/blog/assets/js/48.8f1b2d8d.js"><link rel="prefetch" href="/blog/assets/js/49.11113b7d.js"><link rel="prefetch" href="/blog/assets/js/5.a41998b0.js"><link rel="prefetch" href="/blog/assets/js/50.b6c13c70.js"><link rel="prefetch" href="/blog/assets/js/51.a5b33f9c.js"><link rel="prefetch" href="/blog/assets/js/52.5523becd.js"><link rel="prefetch" href="/blog/assets/js/53.bc2d3243.js"><link rel="prefetch" href="/blog/assets/js/54.8a39e6a2.js"><link rel="prefetch" href="/blog/assets/js/55.09bc0ac6.js"><link rel="prefetch" href="/blog/assets/js/56.0f4b861f.js"><link rel="prefetch" href="/blog/assets/js/57.d57d5768.js"><link rel="prefetch" href="/blog/assets/js/58.cb977997.js"><link rel="prefetch" href="/blog/assets/js/59.f53a20c3.js"><link rel="prefetch" href="/blog/assets/js/6.21a0e768.js"><link rel="prefetch" href="/blog/assets/js/60.5a478012.js"><link rel="prefetch" href="/blog/assets/js/61.b9745760.js"><link rel="prefetch" href="/blog/assets/js/62.4a625cef.js"><link rel="prefetch" href="/blog/assets/js/63.f0ca2717.js"><link rel="prefetch" href="/blog/assets/js/64.3468415c.js"><link rel="prefetch" href="/blog/assets/js/7.18d47045.js"><link rel="prefetch" href="/blog/assets/js/8.a3953fde.js"><link rel="prefetch" href="/blog/assets/js/9.63636af7.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.792487fc.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1aefc0b4><div data-v-1aefc0b4><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1aefc0b4 data-v-1aefc0b4><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-1aefc0b4 data-v-1aefc0b4><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>记录</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>笔记</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2023
+        </a></span></div></div> <div class="hide" data-v-1aefc0b4><header class="navbar" data-v-1aefc0b4><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">记录</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/blog/handbook/" class="nav-link"><i class="undefined"></i>
+  资源
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      javascript
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/js/classList.html" class="nav-link"><i class="undefined"></i>
+  js
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/frame/vue.html" class="nav-link"><i class="undefined"></i>
+  frame
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1aefc0b4></div> <aside class="sidebar" data-v-1aefc0b4><div class="personal-info-wrapper" data-v-39576ba9 data-v-1aefc0b4><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>48</h3> <h6 data-v-39576ba9>文章</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>0</h3> <h6 data-v-39576ba9>标签</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/blog/handbook/" class="nav-link"><i class="undefined"></i>
+  资源
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      javascript
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/js/classList.html" class="nav-link"><i class="undefined"></i>
+  js
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/frame/vue.html" class="nav-link"><i class="undefined"></i>
+  frame
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/blog/js/js1" class="sidebar-heading clickable"><span>javascript</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/es6/" class="sidebar-heading clickable"><span>es6</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/vue/vue" class="sidebar-heading clickable"><span>vue</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/css/css" class="sidebar-heading clickable"><span>css</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/git/api" class="sidebar-heading clickable"><span>git</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/webpack/set" class="sidebar-heading clickable open active"><span>webpack</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/webpack/set.html" aria-current="page" class="active sidebar-link">配置</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/typescript/" class="sidebar-heading clickable"><span>typescript</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/handbook/" class="sidebar-heading clickable"><span>手册</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/other/" class="sidebar-heading clickable"><span>包罗万象</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-1aefc0b4><h3 class="title" data-v-25ba6db2 data-v-25ba6db2></h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2023
+        </a></span></div></div> <div data-v-1aefc0b4><main class="page"><section><div class="page-title"><h1 class="title">webpack打包性能瓶颈</h1> <div data-v-f875f3fc><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h2 id="webpack打包性能瓶颈"><a href="#webpack打包性能瓶颈" class="header-anchor">#</a> webpack打包性能瓶颈</h2> <p><a href="https://github.com/sisterAn/blog/issues/67" target="_blank" rel="noopener noreferrer">url<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <h2 id="webpack-性能优化"><a href="#webpack-性能优化" class="header-anchor">#</a> webpack 性能优化</h2> <p><a href="https://www.toutiao.com/article/7174344095270208004/?log_from=c7da9a7005c4b_1675865545645" target="_blank" rel="noopener noreferrer">按需加载<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p><a href="https://zhuanlan.zhihu.com/p/363928061" target="_blank" rel="noopener noreferrer">webpack原理<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://juejin.cn/post/6844904093463347208" target="_blank" rel="noopener noreferrer">优化详解<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://segmentfault.com/a/1190000042256837" target="_blank" rel="noopener noreferrer">优化<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://segmentfault.com/a/1190000042104271" target="_blank" rel="noopener noreferrer">解析<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://segmentfault.com/a/1190000042093955" target="_blank" rel="noopener noreferrer">splitchunk<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a> <a href="https://mp.weixin.qq.com/s/r-h-Uo-2SftKaUcpOlrYdQ" target="_blank" rel="noopener noreferrer">webpack5 搭建<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language- extra-class"><pre class="language-text"><code>ParallelUglifyPlugin
+使用HappyPack开启多进程Loader转换
+	 use:['happypack/loader?id=css']
+ ParallelUglifyPlugin开启多进程压缩JS文件
+ 	new ParallelUglifyPlugin({
+        uglifyJS:{ //...这里放uglifyJS的参数
+        },
+        //...其他ParallelUglifyPlugin的参数，设置cacheDir可以开启缓存，加快构建速度
+    })
+
+自动刷新
+	--watch
+	devserver
+		向网页中注入代理客户端代码，通过客户端发起刷新
+		向网页装入一个iframe，通过刷新iframe实现刷新效果
+
+
+压缩代码体积
+	const DefinePlugin = require('webpack/lib/DefinePlugin');
+	plugins:[
+	    new DefinePlugin({
+	        'process.env': {
+	            NODE_ENV: JSON.stringify('production')
+	        }
+	    })
+	]
+
+const UglifyJSPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+ 	new UglifyJSPlugin({
+        compress: {
+            warnings: false,  //删除无用代码时不输出警告
+            drop_console: true,  //删除所有console语句，可以兼容IE
+            collapse_vars: true,  //内嵌已定义但只使用一次的变量
+            reduce_vars: true,  //提取使用多次但没定义的静态值到变量
+        },
+        output: {
+            beautify: false, //最紧凑的输出，不保留空格和制表符
+            comments: false, //删除所有注释
+        }
+    })
+
+
+ 压缩CSS：css-loader?minimize、PurifyCSSPlugin
+	cssnano基于PostCSS，不仅是删掉空格，还能理解代码含义，例如把color:#ff0000 转换成 color:red，css-loader内置了cssnano，只需要使用 css-loader?minimize 就可以开启cssnano压缩。
+	另外一种压缩CSS的方式是使用PurifyCSSPlugin，需要配合 extract-text-webpack-plugin 使用，它主要的作用是可以去除没有用到的CSS代码，类似JS的Tree Shaking。
+
+
+启用treeshaking
+	前提是代码必须采用ES6的模块化语法
+	.babelrc
+    &quot;presets&quot;: [[
+        &quot;env&quot;,
+        { &quot;module&quot;: false },   //关闭Babel的模块转换功能，保留ES6模块化语法
+    ]]
+
+添加resolve  可配置 mainFields  alias extensions 属性   减少文件查找范围
+
+module.noParse
+    module: {
+        noParse: [/jquery|lodash, /react\.min\.js$/]
+    }
+
+预渲染
+  prerender-spa-plugin插件，预渲染极大地提高了首屏加载速度。其原理是此插件在本地模拟浏览器环境，
+预先执行我们打包的文件，返回预先解析的首屏html。使用方法入如下：
+
+    module.exports = {
+    plugins: [
+            new PrerenderSPAPlugin({
+                // 生成文件的路径，也可以与webpakc打包的一致。
+                staticDir: path.join(__dirname, '../dist'),
+                // 要预渲染的路由
+                route: [ '/', '/team', '/analyst','/voter','/sponsor'],
+                // 这个很重要，如果没有配置这段，也不会进行预编译
+                renderer: new Renderer({
+                    headless: false,
+                    renderAfterDocumentEvent: 'render-active',
+                    // renderAfterTime: 5000
+                })
+            })
+        ]
+    }
+
+
+splitChunks  合成文件
+
+
+cdn 加速
+	用户可以就近访问资源，加快访问速度
+
+	HTTP1.x版本的协议下，浏览器会对于向同一域名并行发起的请求数限制在4~8个。
+	那么把所有静态资源放在同一域名下的CDN服务上就会遇到这种限制，所以可以把他们分散放在不同的CDN服务上，
+
+	例如JS文件放在js.cdn.com下，将CSS文件放在css.cdn.com下等。这样又会带来一个新的问题：增加了域名解析时间，
+	这个可以通过dns-prefetch来解决  来缩减域名解析的时间。形如//xx.com 这样的URL省略了协议，这样做的好处是，
+	浏览器在访问资源时会自动根据当前URL采用的模式来决定使用HTTP还是HTTPS协议
+
+	构建需要满足以下几点：
+
+	静态资源导入的URL要变成指向CDN服务的绝对路径的URL
+	静态资源的文件名需要带上根据内容计算出的Hash值
+
+	const ExtractTextPlugin = require('extract-text-webpack-plugin');
+	const {WebPlugin} = require('web-webpack-plugin');
+	//...
+	output:{
+	 filename: '[name]_[chunkhash:8].js',
+	 path: path.resolve(__dirname, 'dist'),
+	 publicPatch: '//js.cdn.com/id/', //指定存放JS文件的CDN地址
+	},
+	module:{
+	 rules:[{
+	     test: /\.css/,
+	     use: ExtractTextPlugin.extract({
+	         use: ['css-loader?minimize'],
+	         publicPatch: '//img.cdn.com/id/', //指定css文件中导入的图片等资源存放的cdn地址
+	     }),
+	 },{
+	    test: /\.png/,
+	    use: ['file-loader?name=[name]_[hash:8].[ext]'], //为输出的PNG文件名加上Hash值
+	 }]
+	},
+	plugins:[
+	  new WebPlugin({
+	     template: './template.html',
+	     filename: 'index.html',
+	     stylePublicPath: '//css.cdn.com/id/', //指定存放CSS文件的CDN地址
+	  }),
+	 new ExtractTextPlugin({
+	     filename:`[name]_[contenthash:8].css`, //为输出的CSS文件加上Hash
+	 })
+	]
+
+
+多页面应用提取页面间公共代码，以利用缓存
+CommonsChunkPlugin   把多个页面依赖的公共代码提取到common.js
+
+	const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
+	//base.js
+	import 'react';
+	import 'react-dom';
+	import './base.css';
+
+	//webpack.config.json
+	entry:{
+	    base: './base.js'
+	},
+	plugins:[
+	    new CommonsChunkPlugin({
+	        chunks:['base','common'],
+	        name:'base',
+	        //minChunks:2,表示文件要被提取出来需要在指定的chunks中出现的最小次数，防止common.js中没有代码的情况
+	    })
+	]
+
+
+分割代码以按需加载
+LimitChunkCountPlugin   限制chunk分割数量，减小HTTP请求开销
+
+	//main.js
+	document.getElementById('btn').addEventListener('click',function(){
+	    import(/* webpackChunkName:&quot;show&quot; */ './show').then((show)=&gt;{
+	        show('Webpack');
+	    })
+	})
+
+	//show.js
+	module.exports = function (content) {
+	    window.alert('Hello ' + content);
+	}
+
+
+</code></pre></div><h2 id="loader"><a href="#loader" class="header-anchor">#</a> loader</h2> <div class="language-javascript extra-class"><pre class="language-javascript"><code>
+<span class="token comment">// 配置文件  rules: [{ test: /\.txt$/, use: &quot;raw-loader&quot; }],</span>
+<span class="token comment">// 内联方式 import Styles from &quot;style-loader!css-loader?modules!./styles.css&quot;;</span>
+<span class="token comment">// inline loader一样可以传递options，通过?key=value&amp;foo=bar这种方式</span>
+
+<span class="token comment">// webpack 自带的功能只能处理 javaScript 和 JSON 文件</span>
+<span class="token comment">// loader 让 webpack 能够去处理其他类型的文件，并将它们转换成有效的模块，以及被添加到依赖图中</span>
+<span class="token comment">// 如果有多个loader, loader 的执行顺序从下到上</span>
+<span class="token comment">// 单一职责 链式组合 模块化 无状态 使用loader工具(loader-utils)</span>
+
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">source</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> source<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">var</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">'const'</span><span class="token punctuation">)</span> <span class="token comment">// var 替换成const</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 异步loader</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">source</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> callback <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">async</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token comment">// webpack 的async 方法</span>
+
+  <span class="token comment">// 由于有 3 秒延迟，所以打包时需要 3+ 秒的时间</span>
+  <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">callback</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>source<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">;</span><span class="token regex-delimiter">/</span><span class="token regex-flags">g</span></span><span class="token punctuation">,</span> <span class="token string">''</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">3000</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 可以在webpack.config.js 中配置</span>
+<span class="token punctuation">{</span>
+  resolveLoader<span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 告诉 webpack 该去那个目录下找 loader 模块</span>
+    modules<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'node_modules'</span><span class="token punctuation">,</span> path<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">'loaders'</span><span class="token punctuation">)</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 处理顺序排在最后的 loader</span>
+module<span class="token punctuation">.</span><span class="token function-variable function">exports</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">source</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 这个 loader 的功能是把源模块转化为字符串交给 require 的调用方</span>
+  <span class="token keyword">return</span> <span class="token string">'module.exports = '</span> <span class="token operator">+</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>loader 的分类
+按执行顺序，loader 可以这么划分：
+
+preLoader。enforce 被设置成 pre 的 loader
+postLoader。enforce 被设置成 post 的 loader
+normal loader。在配置文件中配置的并且没有设置 enforce 属性的普通 loader
+inline loader。在 import 语句中使用的 loader
+
+loader 的执行顺序
+默认情况下，loader 按照我们在配置文件中配置的 module.rules 从下往上，从右到左依次执行。
+实际上，loader 会按照下面的顺序执行：
+
+先执行 preLoader
+其次执行 normal loader
+然后执行 inline loader
+最后执行 postLoader
+
+</code></pre></div><h2 id="plugin"><a href="#plugin" class="header-anchor">#</a> plugin</h2> <div class="language- extra-class"><pre class="language-text"><code>// 插件可以执行范围更广的任务，包括打包优化，资源管理，注入环境变量
+// webpack 在整个编译周期中会触发很多不同的事件，plugin 可以监听这些事件，并且可以调用 webpack 的 API 对输出资源进行处理
+
+    在插件开发中最重要的两个资源就是 compiler 和 compilation 对象
+        compiler 对象代表了完整的 webpack 环境配置。这个对象在启动 webpack 时被一次性建立，并配置好所有可操作的设置，
+        包括 options，loader 和 plugin。当在 webpack 环境中应用一个插件时，插件将收到此 compiler 对象的引用。
+        可以使用它来访问 webpack 的主环境。
+
+        compilation 对象代表了一次资源版本构建。
+        当运行 webpack 开发环境中间件时，每当检测到一个文件变化，就会创建一个新的 compilation，从而生成一组新的编译资源。
+        一个 compilation 对象表现了当前的模块资源、编译生成资源、变化的文件、以及被跟踪依赖的状态信息。
+        compilation 对象也提供了很多关键时机的回调，以供插件做自定义处理时选择使用。
+
+
+</code></pre></div><div class="language-javascript extra-class"><pre class="language-javascript"><code>
+<span class="token comment">// 插件的组成部分</span>
+<span class="token comment">//    一个 JavaScript 命名函数。 (构造函数)</span>
+<span class="token comment">//     在插件函数的 prototype 上定义一个 apply 方法。</span>
+<span class="token comment">//     指定一个绑定到 webpack 自身的事件钩子。</span>
+<span class="token comment">//     处理 webpack 内部实例的特定数据。</span>
+<span class="token comment">//     功能完成后调用 webpack 提供的回调。</span>
+<span class="token keyword">function</span> <span class="token function">Plugin</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token class-name">Plugin</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">apply</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">compiler</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 所有文件资源都被 loader 处理后触发这个事件</span>
+    compiler<span class="token punctuation">.</span><span class="token function">plugin</span><span class="token punctuation">(</span><span class="token string">'emit'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">compilation<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 功能完成后调用 webpack 提供的回调</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Hello World'</span><span class="token punctuation">)</span>
+        <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> Plugin
+
+
+</code></pre></div><div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 复杂demo</span>
+<span class="token keyword">function</span> <span class="token function">Plugin</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token class-name">Plugin</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">apply</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">compiler</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 所有文件资源经过不同的 loader 处理后触发这个事件</span>
+    compiler<span class="token punctuation">.</span><span class="token function">plugin</span><span class="token punctuation">(</span><span class="token string">'emit'</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">compilation<span class="token punctuation">,</span> callback</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// 获取打包后的 js 文件名</span>
+        <span class="token keyword">const</span> filename <span class="token operator">=</span> compiler<span class="token punctuation">.</span>options<span class="token punctuation">.</span>output<span class="token punctuation">.</span>filename
+        <span class="token comment">// 生成一个 index.html 并引入打包后的 js 文件</span>
+        <span class="token keyword">const</span> html <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">&lt;!DOCTYPE html&gt;
+                &lt;html lang=&quot;en&quot;&gt;
+                &lt;head&gt;
+                    &lt;meta charset=&quot;UTF-8&quot;&gt;
+                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+                    &lt;title&gt;Document&lt;/title&gt;
+                    &lt;script src=&quot;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>filename<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&quot;&gt;&lt;/script&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+
+                &lt;/body&gt;
+                &lt;/html&gt;</span><span class="token template-punctuation string">`</span></span>
+        <span class="token comment">// 所有处理后的资源都放在 compilation.assets 中</span>
+        <span class="token comment">// 添加一个 index.html 文件</span>
+        compilation<span class="token punctuation">.</span>assets<span class="token punctuation">[</span><span class="token string">'index.html'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+            <span class="token function-variable function">source</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> html
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token function-variable function">size</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> html<span class="token punctuation">.</span>length
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token comment">// 功能完成后调用 webpack 提供的回调</span>
+        <span class="token function">callback</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> Plugin
+</code></pre></div><div class="language-javascript extra-class"><pre class="language-javascript"><code><span class="token comment">// 获取版权信息的plugin</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CopyrightWebpackPlugin</span> <span class="token punctuation">{</span>
+    <span class="token comment">//编写一个构造器</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">options</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span>
+     <span class="token punctuation">}</span>
+
+    <span class="token function">apply</span><span class="token punctuation">(</span><span class="token parameter">compiler</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">//遇到同步时刻</span>
+        compiler<span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>compile<span class="token punctuation">.</span><span class="token function">tap</span><span class="token punctuation">(</span><span class="token string">'CopyrightWebpackPlugin'</span><span class="token punctuation">,</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'compiler'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token comment">//遇到异步时刻</span>
+        <span class="token comment">//当要把代码放到dist目录之前，要走下面这个函数</span>
+        <span class="token comment">//Compilation存放打包的所有内容，Compilation.assets放置生成的内容</span>
+        compiler<span class="token punctuation">.</span>hooks<span class="token punctuation">.</span>emit<span class="token punctuation">.</span><span class="token function">tapAsync</span><span class="token punctuation">(</span><span class="token string">'CopyrightWebpackPlugin'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">Compilation<span class="token punctuation">,</span> cb</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token comment">// debugger;</span>
+            <span class="token comment">// 往代码中增加一个文件，copyright.txt</span>
+            Compilation<span class="token punctuation">.</span>assets<span class="token punctuation">[</span><span class="token string">'copyright.txt'</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+                <span class="token function-variable function">source</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token string">'copyright by monday'</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                <span class="token function-variable function">size</span><span class="token operator">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">return</span> <span class="token number">19</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">;</span>
+            <span class="token function">cb</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> CopyrightWebpackPlugin<span class="token punctuation">;</span>
+</code></pre></div><h2 id="动态导入实现"><a href="#动态导入实现" class="header-anchor">#</a> 动态导入实现</h2> <p><a href="https://juejin.cn/post/6844903888319954952" target="_blank" rel="noopener noreferrer">动态导入实现<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <div class="language-javascript extra-class"><pre class="language-javascript"><code>
+</code></pre></div><h2 id="热更新原理"><a href="#热更新原理" class="header-anchor">#</a> 热更新原理</h2> <div class="language- extra-class"><pre class="language-text"><code>1. webpack-dev-server启动本地服务
+    我们根据webpack-dev-server的package.json中的bin命令，可以找到命令的入口文件bin/webpack-dev-server.js
+
+    启动webpack，生成compiler实例。compiler上有很多方法，比如可以启动 webpack 所有编译工作，以及监听本地文件的变化。
+    使用express框架启动本地server，让浏览器可以请求本地的静态资源。
+    本地server启动之后，再去启动websocket服务，如果不了解websocket，建议简单了解一下websocket速成。通过websocket，
+    可以建立本地服务和浏览器的双向通信。这样就可以实现当本地文件发生变化，立马告知浏览器可以热更新代码啦！
+
+2. 修改webpack.config.js的entry配置
+    启动本地服务前，调用了updateCompiler(this.compiler)方法。这个方法中有 2 段关键性代码。一个是获取websocket客户端代码路径，
+    另一个是根据配置获取webpack热更新代码路径。
+    添加 clientEntry  hotEntry 一起打包打开bundle.js中
+    webpack-dev-server/client/index.js    启动websocket
+    webpack/hot/dev-server.js   检查更新逻辑的
+
+
+3. 监听webpack编译结束
+    修改好入口配置后，又调用了setupHooks方法。这个方法是用来注册监听事件的，监听每次webpack编译完成。
+    当监听到一次webpack编译结束，就会调用_sendStats方法通过websocket给浏览器发送通知，
+    ok和hash事件，这样浏览器就可以拿到最新的hash值了，做检查更新逻辑。
+
+4. webpack监听文件变化
+    主要是通过setupDevMiddleware方法实现的
+    // node_modules/webpack-dev-middleware/index.js
+    compiler.watch(options.watchOptions, (err) =&gt; {
+        if (err) { /*错误处理*/ }
+    });
+
+    // 通过“memory-fs”库将打包后的文件写入内存
+    setFs(context, compiler);
+
+    （1）调用了compiler.watch方法，在第 1 步中也提到过，compiler的强大。这个方法主要就做了 2 件事：
+
+    首先对本地文件代码进行编译打包，也就是webpack的一系列编译流程。
+    其次编译结束后，开启对本地文件的监听，当文件发生变化，重新编译，编译完成之后继续监听。
+
+    为什么代码的改动保存会自动编译，重新打包？这一系列的重新检测编译就归功于compiler.watch这个方法了。监听本地文件的变化主要是通过文件的生成时间是否有变化，这里就不细讲了。
+    （2）执行setFs方法，这个方法主要目的就是将编译后的文件打包到内存。这就是为什么在开发的过程中，你会发现dist目录没有打包后的代码，因为都在内存中。原因就在于访问内存中的代码比访问文件系统中的文件更快，而且也减少了代码写入文件的开销，这一切都归功于memory-fs。
+
+5. 浏览器接收到热更新的通知
+
+
+</code></pre></div></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/blog/git/api.html" class="prev">
+            git
+          </a></span> <span class="next"><a href="/blog/typescript/typescript.html">
+            typescript
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-cb1513f6><li class="level-2" data-v-cb1513f6><a href="/blog/webpack/set.html#webpack打包性能瓶颈" class="sidebar-link reco-side-webpack打包性能瓶颈" data-v-cb1513f6>webpack打包性能瓶颈</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/webpack/set.html#webpack-性能优化" class="sidebar-link reco-side-webpack-性能优化" data-v-cb1513f6>webpack 性能优化</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/webpack/set.html#loader" class="sidebar-link reco-side-loader" data-v-cb1513f6>loader</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/webpack/set.html#plugin" class="sidebar-link reco-side-plugin" data-v-cb1513f6>plugin</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/webpack/set.html#动态导入实现" class="sidebar-link reco-side-动态导入实现" data-v-cb1513f6>动态导入实现</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/webpack/set.html#热更新原理" class="sidebar-link reco-side-热更新原理" data-v-cb1513f6>热更新原理</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/blog/assets/js/app.35edf068.js" defer></script><script src="/blog/assets/js/3.8349ca37.js" defer></script><script src="/blog/assets/js/1.cf20fa99.js" defer></script><script src="/blog/assets/js/65.acfa5b7e.js" defer></script>
+  </body>
+</html>

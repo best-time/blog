@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>正则 | 记录</title>
+    <meta name="generator" content="VuePress 1.8.2">
+    
+    <meta name="description" content="笔记">
+    
+    <link rel="preload" href="/blog/assets/css/0.styles.792487fc.css" as="style"><link rel="preload" href="/blog/assets/js/app.35edf068.js" as="script"><link rel="preload" href="/blog/assets/js/3.8349ca37.js" as="script"><link rel="preload" href="/blog/assets/js/1.cf20fa99.js" as="script"><link rel="preload" href="/blog/assets/js/45.aa3107b1.js" as="script"><link rel="prefetch" href="/blog/assets/js/10.974889c9.js"><link rel="prefetch" href="/blog/assets/js/11.10f6fb6d.js"><link rel="prefetch" href="/blog/assets/js/12.03df589f.js"><link rel="prefetch" href="/blog/assets/js/13.1e7d7c07.js"><link rel="prefetch" href="/blog/assets/js/14.e3591339.js"><link rel="prefetch" href="/blog/assets/js/15.015ebc4a.js"><link rel="prefetch" href="/blog/assets/js/16.31112d9c.js"><link rel="prefetch" href="/blog/assets/js/17.d9f266cc.js"><link rel="prefetch" href="/blog/assets/js/18.04baafb2.js"><link rel="prefetch" href="/blog/assets/js/19.dedf9f19.js"><link rel="prefetch" href="/blog/assets/js/20.57f6a5e6.js"><link rel="prefetch" href="/blog/assets/js/21.aa29dbac.js"><link rel="prefetch" href="/blog/assets/js/22.59838915.js"><link rel="prefetch" href="/blog/assets/js/23.0dea3ea9.js"><link rel="prefetch" href="/blog/assets/js/24.5b56ecad.js"><link rel="prefetch" href="/blog/assets/js/25.c0244dfb.js"><link rel="prefetch" href="/blog/assets/js/26.86891ecc.js"><link rel="prefetch" href="/blog/assets/js/27.951d3f33.js"><link rel="prefetch" href="/blog/assets/js/28.d1cc87a3.js"><link rel="prefetch" href="/blog/assets/js/29.4d818a95.js"><link rel="prefetch" href="/blog/assets/js/30.bc7ecb10.js"><link rel="prefetch" href="/blog/assets/js/31.1c4b65a0.js"><link rel="prefetch" href="/blog/assets/js/32.47b1cff6.js"><link rel="prefetch" href="/blog/assets/js/33.e73c5fd6.js"><link rel="prefetch" href="/blog/assets/js/34.022c6643.js"><link rel="prefetch" href="/blog/assets/js/35.6603ed0d.js"><link rel="prefetch" href="/blog/assets/js/36.3a8f7758.js"><link rel="prefetch" href="/blog/assets/js/37.235de343.js"><link rel="prefetch" href="/blog/assets/js/38.2d7c6e2a.js"><link rel="prefetch" href="/blog/assets/js/39.30a7b6f2.js"><link rel="prefetch" href="/blog/assets/js/4.d39b663d.js"><link rel="prefetch" href="/blog/assets/js/40.4df1cc16.js"><link rel="prefetch" href="/blog/assets/js/41.d4fe5862.js"><link rel="prefetch" href="/blog/assets/js/42.c556f088.js"><link rel="prefetch" href="/blog/assets/js/43.6527c54d.js"><link rel="prefetch" href="/blog/assets/js/44.d5937ea0.js"><link rel="prefetch" href="/blog/assets/js/46.a24f60e3.js"><link rel="prefetch" href="/blog/assets/js/47.76d870f1.js"><link rel="prefetch" href="/blog/assets/js/48.8f1b2d8d.js"><link rel="prefetch" href="/blog/assets/js/49.11113b7d.js"><link rel="prefetch" href="/blog/assets/js/5.a41998b0.js"><link rel="prefetch" href="/blog/assets/js/50.b6c13c70.js"><link rel="prefetch" href="/blog/assets/js/51.a5b33f9c.js"><link rel="prefetch" href="/blog/assets/js/52.5523becd.js"><link rel="prefetch" href="/blog/assets/js/53.bc2d3243.js"><link rel="prefetch" href="/blog/assets/js/54.8a39e6a2.js"><link rel="prefetch" href="/blog/assets/js/55.09bc0ac6.js"><link rel="prefetch" href="/blog/assets/js/56.0f4b861f.js"><link rel="prefetch" href="/blog/assets/js/57.d57d5768.js"><link rel="prefetch" href="/blog/assets/js/58.cb977997.js"><link rel="prefetch" href="/blog/assets/js/59.f53a20c3.js"><link rel="prefetch" href="/blog/assets/js/6.21a0e768.js"><link rel="prefetch" href="/blog/assets/js/60.5a478012.js"><link rel="prefetch" href="/blog/assets/js/61.b9745760.js"><link rel="prefetch" href="/blog/assets/js/62.4a625cef.js"><link rel="prefetch" href="/blog/assets/js/63.f0ca2717.js"><link rel="prefetch" href="/blog/assets/js/64.3468415c.js"><link rel="prefetch" href="/blog/assets/js/65.acfa5b7e.js"><link rel="prefetch" href="/blog/assets/js/7.18d47045.js"><link rel="prefetch" href="/blog/assets/js/8.a3953fde.js"><link rel="prefetch" href="/blog/assets/js/9.63636af7.js">
+    <link rel="stylesheet" href="/blog/assets/css/0.styles.792487fc.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container" data-v-1aefc0b4><div data-v-1aefc0b4><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-1aefc0b4 data-v-1aefc0b4><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-25ba6db2 data-v-1aefc0b4 data-v-1aefc0b4><h3 class="title" data-v-25ba6db2 data-v-25ba6db2>记录</h3> <p class="description" data-v-25ba6db2 data-v-25ba6db2>笔记</p> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2023
+        </a></span></div></div> <div class="hide" data-v-1aefc0b4><header class="navbar" data-v-1aefc0b4><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/blog/" class="home-link router-link-active"><!----> <span class="site-name">记录</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/blog/handbook/" class="nav-link"><i class="undefined"></i>
+  资源
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      javascript
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/js/classList.html" class="nav-link"><i class="undefined"></i>
+  js
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/frame/vue.html" class="nav-link"><i class="undefined"></i>
+  frame
+</a></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-1aefc0b4></div> <aside class="sidebar" data-v-1aefc0b4><div class="personal-info-wrapper" data-v-39576ba9 data-v-1aefc0b4><!----> <!----> <div class="num" data-v-39576ba9><div data-v-39576ba9><h3 data-v-39576ba9>48</h3> <h6 data-v-39576ba9>文章</h6></div> <div data-v-39576ba9><h3 data-v-39576ba9>0</h3> <h6 data-v-39576ba9>标签</h6></div></div> <ul class="social-links" data-v-39576ba9></ul> <hr data-v-39576ba9></div> <nav class="nav-links"><div class="nav-item"><a href="/blog/" class="nav-link"><i class="undefined"></i>
+  首页
+</a></div><div class="nav-item"><a href="/blog/handbook/" class="nav-link"><i class="undefined"></i>
+  资源
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="undefined"></i>
+      javascript
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/blog/js/classList.html" class="nav-link"><i class="undefined"></i>
+  js
+</a></li></ul></div></div><div class="nav-item"><a href="/blog/frame/vue.html" class="nav-link"><i class="undefined"></i>
+  frame
+</a></div> <!----></nav> <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><a href="/blog/js/js1" class="sidebar-heading clickable open"><span>javascript</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/blog/js/js1.html" class="sidebar-link">基础</a></li><li><a href="/blog/js/classList.html" class="sidebar-link">element</a></li><li><a href="/blog/js/dom.html" class="sidebar-link">dom</a></li><li><a href="/blog/js/bit.html" class="sidebar-link">bit</a></li><li><a href="/blog/js/domPosition.html" class="sidebar-link">元素位置</a></li><li><a href="/blog/js/reg.html" aria-current="page" class="active sidebar-link">正则</a></li><li><a href="/blog/js/function.html" class="sidebar-link">函数式</a></li><li><a href="/blog/js/operation.html" class="sidebar-link">操作符</a></li><li><a href="/blog/js/designPatterns.html" class="sidebar-link">设计模式</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/es6/" class="sidebar-heading clickable"><span>es6</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/vue/vue" class="sidebar-heading clickable"><span>vue</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/css/css" class="sidebar-heading clickable"><span>css</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/git/api" class="sidebar-heading clickable"><span>git</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/webpack/set" class="sidebar-heading clickable"><span>webpack</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/typescript/" class="sidebar-heading clickable"><span>typescript</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/handbook/" class="sidebar-heading clickable"><span>手册</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/blog/other/" class="sidebar-heading clickable"><span>包罗万象</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-25ba6db2 data-v-1aefc0b4><h3 class="title" data-v-25ba6db2 data-v-25ba6db2></h3> <!----> <label id="box" class="inputBox" data-v-25ba6db2 data-v-25ba6db2><input type="password" value="" data-v-25ba6db2> <span data-v-25ba6db2>Konck! Knock!</span> <button data-v-25ba6db2>OK</button></label> <div class="footer" data-v-25ba6db2 data-v-25ba6db2><span data-v-25ba6db2><i class="iconfont reco-theme" data-v-25ba6db2></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-25ba6db2>vuePress-theme-reco</a></span> <span data-v-25ba6db2><i class="iconfont reco-copyright" data-v-25ba6db2></i> <a data-v-25ba6db2><!---->
+            
+          <!---->
+          2023
+        </a></span></div></div> <div data-v-1aefc0b4><main class="page"><section><div class="page-title"><h1 class="title">正则</h1> <div data-v-f875f3fc><!----> <!----> <!----> <!----></div></div> <div class="theme-reco-content content__default"><h1 id="正则"><a href="#正则" class="header-anchor">#</a> 正则</h1> <h1 id="正则表达式"><a href="#正则表达式" class="header-anchor">#</a> 正则表达式</h1> <p>正则表达式是匹配模式，要么匹配字符，要么匹配位置</p> <h2 id="b"><a href="#b" class="header-anchor">#</a> \b</h2> <div class="language- extra-class"><pre class="language-text"><code>
+\w	匹配一个单字字符（字母、数字或者下划线），等价于“[A-Za-z0-9_]”。例如“/\w/”能够匹配“apple,”中的“a”，“$5.28,”中的“5”和“3D.”中的“3”。
+\W	匹配一个非单字字符，等价于“[^A-Za-z0-9_]”。例如“/\W/”或者“/[^A-Za-z0-9_]/”能够匹配“50%.”中的“%”。
+
+单词的边界，具体讲有三点规则。
+
+① \w和\W之间的位置
+
+② ^与\w之间的位置
+
+③ \w与$之间的位置
+</code></pre></div><h2 id="b-2"><a href="#b-2" class="header-anchor">#</a> \B</h2> <div class="language- extra-class"><pre class="language-text"><code>非单词的边界，也就是\b反着来的意思，它的规则如下：
+
+① \w与\w之间的位置
+
+② \W与\W之间的位置
+
+③^与\W之间的位置
+
+④\W与$之间的位置
+</code></pre></div><h2 id="p"><a href="#p" class="header-anchor">#</a> (?=p)</h2> <div class="language- extra-class"><pre class="language-text"><code>正向先行断言
+
+
+'xxx_love_study_1.mp4'.replace('xxx', '❤️') // ❤️_love_study_1.mp4
+
+
+
+'xxx_love_study_1.mp4'.replace(/(?=xxx)/g, '❤️') // ❤️xxx_love_study_1.mp4
+
+
+
+</code></pre></div><h2 id="p-2"><a href="#p-2" class="header-anchor">#</a> (?!p)</h2> <div class="language- extra-class"><pre class="language-text"><code>负向先行断言
+
+
+'xxx_love_study_1.mp4'.replace(/(?!xxx)/g, '❤️')
+
+// (?=xxx)的输出
+❤️xxx_love_study_1.mp4
+// (?!xxx)的输出
+x❤️x❤️x❤️_❤️l❤️o❤️v❤️e❤️_❤️s❤️t❤️u❤️d❤️y❤️_❤️1❤️.❤️m❤️p❤️4❤️
+
+除了(?=xxx)匹配到最前面那个位置，其他位置都是(?!xxx)匹配到
+
+</code></pre></div><h2 id="p-3"><a href="#p-3" class="header-anchor">#</a> (?&lt;=p)</h2> <div class="language- extra-class"><pre class="language-text"><code>符合p子模式后面(注意(?=p)表示的是前面)的那个位置。换句话说是，有一个位置，其前面的部分需要满足p子模式。
+
+'xxx_love_study_1.mp4'.replace(/(?&lt;=xxx)/g, '❤️') //xxx❤️_love_study_1.mp4
+
+
+
+</code></pre></div><h2 id="p-4"><a href="#p-4" class="header-anchor">#</a> (?&lt;!p)</h2> <div class="language- extra-class"><pre class="language-text"><code>(?&lt;=p)反过来的意思，可以理解为(?&lt;=p)匹配到的位置之外的位置都是属于(?&lt;!p)的，
+
+
+'xxx_love_study_1.mp4'.replace(/(?&lt;!xxx)/g, '❤️')
+
+// (?&lt;=xxx)的输出
+xxx❤️_love_study_1.mp4
+// (?&lt;!xxx)的输出
+❤️x❤️x❤️x_❤️l❤️o❤️v❤️e❤️_❤️s❤️t❤️u❤️d❤️y❤️_❤️1❤️.❤️m❤️p❤️4❤️
+
+
+
+</code></pre></div><h2 id="字面量方式、实例创建的方式"><a href="#字面量方式、实例创建的方式" class="header-anchor">#</a> 字面量方式、实例创建的方式</h2> <div class="language- extra-class"><pre class="language-text"><code>//-&gt;实例创建第一参数值是字符串
+//-&gt;想要和字面量方式保持统一的话,对于\d \w \n...这些都需要多加一个\,
+使其\d具有自己的特殊的意义
+
+var reg = /^\d+$/ig;
+console.log(reg.test(&quot;2016&quot;));//-&gt;true
+reg = new RegExp(&quot;^\d+$&quot;, &quot;ig&quot;);
+console.log(reg.test(&quot;2016&quot;));//-&gt;false
+reg = new RegExp(&quot;^\\d+$&quot;, &quot;ig&quot;);
+console.log(reg.test(&quot;2016&quot;));//-&gt;true
+
+</code></pre></div><h2 id="gim"><a href="#gim" class="header-anchor">#</a> gim</h2> <div class="language- extra-class"><pre class="language-text"><code>g(global)-&gt;全局匹配
+i(ignoreCase)-&gt;忽略大小写匹配
+m(multiline)-&gt;换行匹配
+</code></pre></div><h2 id="reg"><a href="#reg" class="header-anchor">#</a> reg</h2> <div class="language- extra-class"><pre class="language-text"><code>元字符: ^ $ . * + ? | \ / ( ) [ ] { } = ! : - ,
+
+\d -&gt; 匹配一个0-9的数字,相当于[0-9]
+\D -&gt;匹配一个除了0-9的任意字符
+\w -&gt; 匹配一个0-9、a-z、A-Z、_的数字或字符,相当于[0-9a-zA-Z_]
+\W是[^0-9a-zA-Z_]。非单词字符。
+\s -&gt; 匹配一个空白字符(空格、制表符...)
+\S是[^ \t\v\n\r\f]。 非空白符。
+\b -&gt; 匹配一个单词的边界
+\t -&gt; 匹配一个制表符
+\n -&gt; 匹配一个换行
+. -&gt; 匹配一个除了\n以外的任意字符
+^ -&gt; 以某一个元字符开头
+$ -&gt; 以某一个元字符结尾
+\ -&gt; 转义字符
+x|y -&gt; x或者y的一个
+[xyz] -&gt; x、y、z中的任意一个
+[^xyz] -&gt; 除了xyz中的任意一个字符
+[a-z] -&gt; 匹配a-z中的任意一个字符
+[^a-z] -&gt; 匹配除了a-z中的任意一个字符
+() -&gt; 正则中的分组
+-&gt;+ : 出现一到多次
+-&gt;* : 出现零到多次
+-&gt;? : 出现零到一次
+-&gt;{n} : 出现n次
+-&gt;{n,} : 出现n到多次
+-&gt;{n,m} : 出现n-m次
+
+要匹配任意字符, 可以使用[\d\D]、[\w\W]、[\s\S]和[^]中任何的一个
+\b是单词边界，具体就是\w和\W之间的位置，也包括\w和^之间的位置，也包括\w和$之间的位置。
+\B就是\b的反面的意思，非单词边界。例如在字符串中所有位置中，扣掉\b，剩下的都是\B的。
+具体说来就是\w与\w、\W与\W、^与\W，\W与$之间的位置。
+</code></pre></div><h3 id=""><a href="#" class="header-anchor">#</a> [ ]</h3> <div class="language- extra-class"><pre class="language-text"><code>//-&gt;在中括号中出现的所有字符(不管之前代表什么意思),在这里都是只代表本身的意思
+//var reg = /^[2.3]$/;//-&gt;.这里只代表小数点,不是任意字符了
+//reg = /^[\dz]$/;//-&gt;\d本身整体就是0-9之间的数字,在这里还是这个意思
+//-&gt;在中括号中出现的两位数不是一个两位数，而是左边或者右边的
+//var reg = /^[10-23]$/;//-&gt;1或者0-2或者3
+
+在中括号中&quot;-&quot;具有连字符的作用,如果只想表示-,要么放在开头，要么放在结尾，要么转义
+//var reg = /^[12-]$/;
+
+//-&gt;中括号本身也有特殊的意思,如果需要只代表中括号本身的意思,需要进行转义
+//var reg = /^\[\d+\]$/;//-&gt;&quot;[200]&quot;
+
+</code></pre></div><h2 id="-2"><a href="#-2" class="header-anchor">#</a> |</h2> <div class="language- extra-class"><pre class="language-text"><code>//var reg = /^1|2$/;//-&gt;和这个有区别:/^[12]$/
+//-&gt;1、2、12
+
+//var reg = /^10|28$/;
+//-&gt;10、28、1028、102、108、128、028 -&gt;不是我们想要的那个10或者28了
+</code></pre></div><div class="language- extra-class"><pre class="language-text"><code>(?=p)，其中p是一个子模式，即p前面的位置。比如(?=l)，表示'l'字符前面的位置，例如：
+var result = &quot;hello&quot;.replace(/(?=l)/g, '#');
+console.log(result);
+// =&gt; &quot;he#l#lo&quot;
+
+而(?!p)就是(?=p)的反面意思，比如：
+var result = &quot;hello&quot;.replace(/(?!l)/g, '#');
+console.log(result);
+// =&gt; &quot;#h#ell#o#&quot;
+
+</code></pre></div><p>不匹配任何东西的正则: /.^/</p> <h2 id="分组"><a href="#分组" class="header-anchor">#</a> 分组</h2> <div class="language- extra-class"><pre class="language-text"><code>var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+console.log( string.match(regex) );
+// =&gt; [&quot;2017-06-12&quot;, &quot;2017&quot;, &quot;06&quot;, &quot;12&quot;, index: 0, input: &quot;2017-06-12&quot;]
+
+match返回的一个数组，第一个元素是整体匹配结果，然后是各个分组（括号里）匹配的内容，然后是匹配下标，最后是输入的文本。（注意：如果正则是否有修饰符g，match返回的数组格式是不一样的）
+
+exec
+var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+console.log( regex.exec(string) );
+// =&gt; [&quot;2017-06-12&quot;, &quot;2017&quot;, &quot;06&quot;, &quot;12&quot;, index: 0, input: &quot;2017-06-12&quot;]
+
+$1 - $9
+var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+
+regex.test(string); // 正则操作即可，例如
+//regex.exec(string);
+//string.match(regex);
+
+console.log(RegExp.$1); // &quot;2017&quot;
+console.log(RegExp.$2); // &quot;06&quot;
+console.log(RegExp.$3); // &quot;12&quot;
+
+替换
+
+var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+var result = string.replace(regex, &quot;$2/$3/$1&quot;);
+console.log(result);
+// =&gt; &quot;06/12/2017&quot;
+
+等价于
+var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+var result = string.replace(regex, function() {
+	return RegExp.$2 + &quot;/&quot; + RegExp.$3 + &quot;/&quot; + RegExp.$1;
+});
+console.log(result);
+// =&gt; &quot;06/12/2017&quot;
+
+也等价于
+var regex = /(\d{4})-(\d{2})-(\d{2})/;
+var string = &quot;2017-06-12&quot;;
+var result = string.replace(regex, function(match, year, month, day) {
+	return month + &quot;/&quot; + day + &quot;/&quot; + year;
+});
+console.log(result);
+// =&gt; &quot;06/12/2017&quot;
+
+反向引用 ⭐️
+var regex = /\d{4}(-|\/|\.)\d{2}\1\d{2}/;
+var string1 = &quot;2017-06-12&quot;;
+var string2 = &quot;2017/06/12&quot;;
+var string3 = &quot;2017.06.12&quot;;
+var string4 = &quot;2016-06/12&quot;;
+console.log( regex.test(string1) ); // true
+console.log( regex.test(string2) ); // true
+console.log( regex.test(string3) ); // true
+console.log( regex.test(string4) ); // false
+注意里面的\1，表示的引用之前的那个分组(-|\/|\.)。不管它匹配到什么（比如-），\1都匹配那个同样的具体某个字符。
+
+我们知道了\1的含义后，那么\2和\3的概念也就理解了，即分别指代第二个和第三个分组。
+
+括号嵌套怎么办？
+
+以左括号（开括号）为准。比如：
+
+var regex = /^((\d)(\d(\d)))\1\2\3\4$/;
+var string = &quot;1231231233&quot;;
+console.log( regex.test(string) ); // true
+console.log( RegExp.$1 ); // 123
+console.log( RegExp.$2 ); // 1
+console.log( RegExp.$3 ); // 23
+console.log( RegExp.$4 ); // 3
+
+第一个字符是数字，比如说1，
+第二个字符是数字，比如说2，
+第三个字符是数字，比如说3，
+接下来的是\1，是第一个分组内容，那么看第一个开括号对应的分组是什么，是123，
+接下来的是\2，找到第2个开括号，对应的分组，匹配的内容是1，
+接下来的是\3，找到第3个开括号，对应的分组，匹配的内容是23，
+最后的是\4，找到第3个开括号，对应的分组，匹配的内容是3。
+
+
+因为反向引用，是引用前面的分组，但我们在正则里引用了不存在的分组时，此时正则不会报错，只是匹配反向引用的字符本身。例如\2，就匹配&quot;\2&quot;。注意&quot;\2&quot;表示对&quot;2&quot;进行了转意。
+var regex = /\1\2\3\4\5\6\7\8\9/;
+console.log( regex.test(&quot;\1\2\3\4\5\6\7\8\9&quot;) );
+console.log( &quot;\1\2\3\4\5\6\7\8\9&quot;.split(&quot;&quot;) );
+
+
+非捕获分组 (?:p)
+
+
+
+匹配成对标签，那就需要使用反向引用
+
+var regex = /&lt;([^&gt;]+)&gt;[\d\D]*&lt;\/\1&gt;/;
+var string1 = &quot;&lt;title&gt;regular expression&lt;/title&gt;&quot;;
+var string2 = &quot;&lt;p&gt;laoyao bye bye&lt;/p&gt;&quot;;
+var string3 = &quot;&lt;title&gt;wrong!&lt;/p&gt;&quot;;
+console.log( regex.test(string1) ); // true
+console.log( regex.test(string2) ); // true
+console.log( regex.test(string3) ); // false
+
+
+var string = &quot;12345&quot;;
+var regex = /(\d{1,3})(\d{1,3})/;
+console.log( string.match(regex) );
+// =&gt; [&quot;12345&quot;, &quot;123&quot;, &quot;45&quot;, index: 0, input: &quot;12345&quot;]
+
+惰性
+var string = &quot;12345&quot;;
+var regex = /(\d{1,3}?)(\d{1,3})/;
+console.log( string.match(regex) );
+// =&gt; [&quot;1234&quot;, &quot;1&quot;, &quot;234&quot;, index: 0, input: &quot;12345&quot;]
+
+
+</code></pre></div><h2 id="正则表达式的拆分"><a href="#正则表达式的拆分" class="header-anchor">#</a> 正则表达式的拆分</h2> <div class="language- extra-class"><pre class="language-text"><code>优先级由高到低
+1.转义符 \
+2.括号和方括号 (...)、(?:...)、(?=...)、(?!...)、[...]
+3.量词限定符 {m}、{m,n}、{m,}、?、*、+
+4.位置和序列 ^ 、$、 \元字符、 一般字符
+5. 管道符（竖杠）|
+</code></pre></div><h2 id="demo"><a href="#demo" class="header-anchor">#</a> demo</h2> <div class="language- extra-class"><pre class="language-text"><code>金额添加符号,
+var reg = /(?!^)(?=(\d{3})+$)/g;
+var result = &quot;12345678&quot;.replace(reg, ',')
+console.log(result);
+// =&gt; &quot;12,345,678&quot;
+
+trim 两种实现
+
+第一种，匹配到开头和结尾的空白符，然后替换成空字符
+function trim(str) {
+	return str.replace(/^\s+|\s+$/g, '');
+}
+console.log( trim(&quot;  foobar   &quot;) );
+// =&gt; &quot;foobar&quot;
+
+第二种，匹配整个字符串，然后用引用来提取出相应的数据
+function trim(str) {
+	return str.replace(/^\s*(.*?)\s*$/g, &quot;$1&quot;);
+}
+console.log( trim(&quot;  foobar   &quot;) );
+// =&gt; &quot;foobar&quot;
+
+
+将每个单词的首字母转换为大写
+
+function titleize(str) {
+	return str.toLowerCase().replace(/(?:^|\s)\w/g, function(c) {
+		return c.toUpperCase();
+	});
+}
+console.log( titleize('my name is epeli') );
+// =&gt; &quot;My Name Is Epeli&quot;
+
+
+驼峰化
+
+function camelize(str) {
+	return str.replace(/[-_\s]+(.)?/g, function(match, c) {
+		return c ? c.toUpperCase() : '';
+	});
+}
+console.log( camelize('-moz-transform') );
+// =&gt; &quot;MozTransform&quot;
+
+中划线化
+
+function dasherize(str) {
+	return str.replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase();
+}
+console.log( dasherize('MozTransform') );
+// =&gt; &quot;-moz-transform&quot;
+
+
+html 转义和反转义
+
+// 将HTML特殊字符转换成等值的实体
+function escapeHTML(str) {
+	var escapeChars = {
+	  '¢' : 'cent',
+	  '£' : 'pound',
+	  '¥' : 'yen',
+	  '€': 'euro',
+	  '©' :'copy',
+	  '®' : 'reg',
+	  '&lt;' : 'lt',
+	  '&gt;' : 'gt',
+	  '&quot;' : 'quot',
+	  '&amp;' : 'amp',
+	  '\'' : '#39'
+	};
+	return str.replace(new RegExp('[' + Object.keys(escapeChars).join('') +']', 'g'), function(match) {
+		return '&amp;' + escapeChars[match] + ';';
+	});
+}
+console.log( escapeHTML('&lt;div&gt;Blah blah blah&lt;/div&gt;') );
+// =&gt; &quot;&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt&quot;;
+
+// 实体字符转换为等值的HTML。
+function unescapeHTML(str) {
+	var htmlEntities = {
+	  nbsp: ' ',
+	  cent: '¢',
+	  pound: '£',
+	  yen: '¥',
+	  euro: '€',
+	  copy: '©',
+	  reg: '®',
+	  lt: '&lt;',
+	  gt: '&gt;',
+	  quot: '&quot;',
+	  amp: '&amp;',
+	  apos: '\''
+	};
+	return str.replace(/\&amp;([^;]+);/g, function(match, key) {
+		if (key in htmlEntities) {
+			return htmlEntities[key];
+		}
+		return match;
+	});
+}
+console.log( unescapeHTML('&amp;lt;div&amp;gt;Blah blah blah&amp;lt;/div&amp;gt;') );
+// =&gt; &quot;&lt;div&gt;Blah blah blah&lt;/div&gt;&quot;
+
+</code></pre></div><p>从上面可以看出用于正则操作的方法，共有6个，字符串实例4个，正则实例2个：</p> <p>String#search</p> <p>String#split</p> <p>String#match</p> <p>String#replace</p> <p>RegExp#test</p> <p>RegExp#exec</p> <div class="language- extra-class"><pre class="language-text"><code>注意点:
+search和match，会把字符串转换为正则的。
+match返回结果的格式，与正则对象是否有修饰符g有关
+exec正则实例lastIndex属性，表示下一次匹配开始的位置
+正则实例的两个方法exec、test，当正则是全局匹配时，每一次匹配完成后，都会修改lastIndex
+
+split相关注意事项
+第一，它可以有第二个参数，表示结果数组的最大长度：
+var string = &quot;html,css,javascript&quot;;
+console.log( string.split(/,/, 2) );
+// =&gt;[&quot;html&quot;, &quot;css&quot;]
+第二，正则使用分组时，结果数组中是包含分隔符的：
+var string = &quot;html,css,javascript&quot;;
+console.log( string.split(/(,)/) );
+// =&gt;[&quot;html&quot;, &quot;,&quot;, &quot;css&quot;, &quot;,&quot;, &quot;javascript&quot;]
+
+replace有两种使用形式，这是因为它的第二个参数，可以是字符串，也可以是函数
+
+当第二个参数是字符串时，如下的字符有特殊的含义：
+
+$1,$2,...,$99 匹配第1~99个分组里捕获的文本
+$&amp; 匹配到的子串文本
+$` 匹配到的子串的左边文本
+$' 匹配到的子串的右边文本
+$$ 美元符号
+
+当第二个参数是函数时，我们需要注意该回调函数的参数具体是什么
+&quot;1234 2345 3456&quot;.replace(/(\d)\d{2}(\d)/g, function(match, $1, $2, index, input) {
+	console.log([match, $1, $2, index, input]);
+});
+// =&gt; [&quot;1234&quot;, &quot;1&quot;, &quot;4&quot;, 0, &quot;1234 2345 3456&quot;]
+// =&gt; [&quot;2345&quot;, &quot;2&quot;, &quot;5&quot;, 5, &quot;1234 2345 3456&quot;]
+// =&gt; [&quot;3456&quot;, &quot;3&quot;, &quot;6&quot;, 10, &quot;1234 2345 3456&quot;]
+
+
+正则实例对象属性，除了global、ingnoreCase、multiline、lastIndex属性之外，还有一个source属性。
+
+在构建动态的正则表达式时，可以通过查看该属性，来确认构建出的正则到底是什么
+var className = &quot;high&quot;;
+var regex = new RegExp(&quot;(^|\\s)&quot; + className + &quot;(\\s|$)&quot;);
+console.log( regex.source )
+// =&gt; (^|\s)high(\s|$) 即字符串&quot;(^|\\s)high(\\s|$)&quot;
+
+
+
+构造函数属性构造函数的静态属性基于所执行的最近一次正则操作而变化。除了是$1,...,$9之外，还有几个不太常用的属性（有兼容性问题）：RegExp.input 最近一次目标字符串，简写成RegExp[&quot;$_&quot;]RegExp.lastMatch 最近一次匹配的文本，简写成RegExp[&quot;$&amp;&quot;]RegExp.lastParen 最近一次捕获的文本，简写成RegExp[&quot;$+&quot;]RegExp.leftContext 目标字符串中lastMatch之前的文本，简写成RegExp[&quot;$`&quot;]RegExp.rightContext 目标字符串中lastMatch之后的文本，简写成RegExp[&quot;$'&quot;]
+
+var regex = /([abc])(\d)/g;
+var string = &quot;a1b2c3d4e5&quot;;
+string.match(regex);
+
+console.log( RegExp.input );
+console.log( RegExp[&quot;$_&quot;]);
+// =&gt; &quot;a1b2c3d4e5&quot;
+
+console.log( RegExp.lastMatch );
+console.log( RegExp[&quot;$&amp;&quot;] );
+// =&gt; &quot;c3&quot;
+
+console.log( RegExp.lastParen );
+console.log( RegExp[&quot;$+&quot;] );
+// =&gt; &quot;3&quot;
+
+console.log( RegExp.leftContext );
+console.log( RegExp[&quot;$`&quot;] );
+// =&gt; &quot;a1b2&quot;
+
+console.log( RegExp.rightContext );
+console.log( RegExp[&quot;$'&quot;] );
+// =&gt; &quot;d4e5&quot;
+
+
+
+
+</code></pre></div><p><a href="https://juejin.im/post/5965943ff265da6c30653879#heading-26" target="_blank" rel="noopener noreferrer">正则全面讲解<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p></div></section> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev"><a href="/blog/js/domPosition.html" class="prev">
+            元素位置
+          </a></span> <span class="next"><a href="/blog/js/function.html">
+            函数式
+          </a></span></p></div> <div class="comments-wrapper"><!----></div> <ul class="side-bar sub-sidebar-wrapper" style="width:12rem;" data-v-cb1513f6><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#b" class="sidebar-link reco-side-b" data-v-cb1513f6>\b</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#b-2" class="sidebar-link reco-side-b-2" data-v-cb1513f6>\B</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#p" class="sidebar-link reco-side-p" data-v-cb1513f6>(?=p)</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#p-2" class="sidebar-link reco-side-p-2" data-v-cb1513f6>(?!p)</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#p-3" class="sidebar-link reco-side-p-3" data-v-cb1513f6>(?&lt;=p)</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#p-4" class="sidebar-link reco-side-p-4" data-v-cb1513f6>(?&lt;!p)</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#字面量方式、实例创建的方式" class="sidebar-link reco-side-字面量方式、实例创建的方式" data-v-cb1513f6>字面量方式、实例创建的方式</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#gim" class="sidebar-link reco-side-gim" data-v-cb1513f6>gim</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#reg" class="sidebar-link reco-side-reg" data-v-cb1513f6>reg</a></li><li class="level-3" data-v-cb1513f6><a href="/blog/js/reg.html#" class="sidebar-link reco-side-" data-v-cb1513f6>[ ]</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#-2" class="sidebar-link reco-side--2" data-v-cb1513f6>|</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#分组" class="sidebar-link reco-side-分组" data-v-cb1513f6>分组</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#正则表达式的拆分" class="sidebar-link reco-side-正则表达式的拆分" data-v-cb1513f6>正则表达式的拆分</a></li><li class="level-2" data-v-cb1513f6><a href="/blog/js/reg.html#demo" class="sidebar-link reco-side-demo" data-v-cb1513f6>demo</a></li></ul></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/blog/assets/js/app.35edf068.js" defer></script><script src="/blog/assets/js/3.8349ca37.js" defer></script><script src="/blog/assets/js/1.cf20fa99.js" defer></script><script src="/blog/assets/js/45.aa3107b1.js" defer></script>
+  </body>
+</html>
